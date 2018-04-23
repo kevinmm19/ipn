@@ -1,5 +1,12 @@
 /* ----- Hero component styles ----- */
 
 .hero {
-
+    text-align: center;
+    &__title {
+        font-size: 38px;
+        color: $colorBackground4;
+    }
+    &__description {
+        font-size: 24px;
+    }
 }

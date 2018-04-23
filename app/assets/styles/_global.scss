@@ -17,6 +17,44 @@ html {
     box-sizing: inherit;
 }
 body {
+    background-color: $colorBackground1;
+    color: $colorText1;
     font-size: 16px;
     line-height: 1.4; // unitless line-height to be based off the element's size
+}
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+ul {
+    list-style: none;
+}
+li {
+    display: inline-block;
+}
+p {
+    margin-bottom: 10px;
+}
+
+/*------------------------------------*\
+    CLASSES
+\*------------------------------------*/
+
+.wrapper {
+    margin: 0 auto;
+    padding: 0 10px;
+    max-width: 980px;
+    @include respond-to($desktop) {
+        padding: 0 20px;
+    }
+}
+.main {
+    padding-top: 60px;
+}
+.container {
+    padding: 10px;
+    @include respond-to($desktop) {
+        padding: 20px;
+    }
 }
