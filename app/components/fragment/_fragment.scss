@@ -1,5 +1,17 @@
 /* ----- Fragment component styles ----- */
 
 .fragment {
-    background-color: $colorBackground4;
+    background-color: $colorBackground2;
+    &--alt {
+        background-color: $colorBackground6;
+    }
+    &__title {
+        color: $colorBackground4;
+    }
+    &__gallery-title {
+        color: $colorBackground4;
+    }
+    &__gallery-subtitle {
+        font-weight: normal;
+    }
 }

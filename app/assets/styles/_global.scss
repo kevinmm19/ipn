@@ -19,13 +19,16 @@ html {
 body {
     background-color: $colorBackground1;
     color: $colorText1;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 1.4; // unitless line-height to be based off the element's size
 }
 * {
     margin: 0;
     padding: 0;
     text-decoration: none;
+}
+h1, h2, h3, h4, h5, h6 {
+    color: $colorBackground4;
 }
 ul {
     list-style: none;
@@ -43,7 +46,6 @@ p {
 
 .wrapper {
     margin: 0 auto;
-    padding: 0 10px;
     max-width: 980px;
     @include respond-to($desktop) {
         padding: 0 20px;
