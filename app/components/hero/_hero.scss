@@ -1,13 +1,14 @@
 /* ----- Hero component styles ----- */
 
 .hero {
+    padding: 80px 0;
     text-align: center;
     &__title {
-        font-size: 38px;
-        color: $colorBackground4;
+        font-size: 40px;
+        color: $colorText1;
     }
     &__description {
-        font-size: 24px;
+        font-size: 22px;
         font-weight: normal;
     }
 }

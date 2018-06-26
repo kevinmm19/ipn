@@ -1,7 +1,9 @@
 <main class="main index" data-action="index">
     {{> hero }}
-    {{> fragment class='services'}}
-    {{> fragment class='gallery'}}
-    {{> fragment class='more-info'}}
-    {{> fragment class='contact'}}
+    <div class="content__wrapper">
+        {{> fragment class='services'}}
+        {{> fragment class='gallery'}}
+        {{> fragment class='more-info'}}
+        {{> fragment class='contact'}}
+    </div>
 </main>

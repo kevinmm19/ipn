@@ -7,10 +7,16 @@
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 9999;
+    padding: 10px;
     width: 100%;
     height: 60px;
-    background-color: $colorBackground2;
+    z-index: 9999;
+    @include respond-to($desktop) {
+        padding: 20px 40px;
+    }
+    &--scroll {
+        background-color: $colorBackground9; //2;
+    }
 }
 .logo {
     flex-grow: 1;
