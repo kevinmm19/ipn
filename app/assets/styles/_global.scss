@@ -76,3 +76,22 @@ p {
         padding: 40px;
     }
 }
+.flex {
+    @include respond-to($desktop) {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        align-content: space-around;
+        &__item {
+            flex: 1 1 33%;
+            width: 33%;
+            align-self: center;
+        }
+        &__item-2 {
+            flex: 1 1 50%;
+            width: 50%;
+            padding: 20px;
+            align-self: flex-start;
+        }
+    }
+}
