@@ -8,9 +8,13 @@
         
     }
     &__link {
+        padding-right: 15px;
+        font-size: 16px;
         color: $colorText1;
-        font-size: 18px;
-        font-weight: bold;
-        padding-right: 30px;
+        letter-spacing: 1px;
+        @include respond-to($tablet) {
+            padding-right: 30px;
+            font-size: 18px;
+        }
     }
 }

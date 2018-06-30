@@ -138,7 +138,7 @@ gulp.task('assemble', ['load'], function(){
     return app.toStream('pages')
       .pipe(app.renderFile())
       .pipe($.extname())
-      .pipe($.flatten())
+      //.pipe($.flatten())
       .pipe($.plumber())
       .pipe(app.dest('.tmp'));
 });
@@ -147,7 +147,7 @@ gulp.task('assemble:dist', ['load', 'clean:dist'], function(){
     return app.toStream('pages')
       .pipe(app.renderFile())
       .pipe($.extname())
-      .pipe($.flatten())
+      //.pipe($.flatten())
       .pipe($.plumber())
       .pipe(app.dest('dist'));
 });

@@ -7,7 +7,8 @@ APP.header = (function () {
     var scrollHandler = function () {
         var $header = $('.js-header');
         var $title = $('.js-hero-title');
-        if ($title.offset().top <= $header.offset().top) {
+        var offset = $header.offset().top + 60;
+        if ($title.offset().top <= offset) {
             $header.addClass('header--scroll');
         } else {
             $header.removeClass('header--scroll');

@@ -1,17 +1,40 @@
 /* ----- Fragment component styles ----- */
 
 .fragment {
-    background-color: $colorBackground7; //2;
-    &--alt {
-        background-color: $colorBackground7; //6;
-    }
+    padding: 40px 20px;
+    background-color: $colorBackground7;
     &__title {
-        color: $colorBackground7; //4;
+        padding: 0 0 20px;
+        color: $colorBackground9;
+        text-align: center;
+        &--next {
+            padding: 20px 0;
+        }
     }
-    &__gallery-title {
-        color: $colorBackground7; //4;
-    }
-    &__gallery-subtitle {
+    &__subtitle {
+        padding: 0 0 20px;
         font-weight: normal;
+    }
+    &__link {
+        color: $colorBackground10;
+    }
+    &__more {
+        padding: 0 0 20px;
+        .fragment__title {
+            color: $colorBackground4;
+        }
+    }
+    &--alt {
+        background-color: $colorBackground9;
+        .fragment__title,
+        .text {
+            color: $colorText1;
+        }
+        .fragment__item {
+            padding: 0 0 20px;
+            .fragment__title {
+                color: $colorBackground4;
+            }
+        }
     }
 }

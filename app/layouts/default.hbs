@@ -3,18 +3,18 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>IPN Ingeniería de Procesos de Negocios</title>
+        <title>{{title}}</title>
         <meta name="description" content="IPN Ingeniería de Procesos de Negocios">
         <meta name="keywords" content="IPN, Ingeniería de Procesos de Negocios, procesos, negocios">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- build:cssvendor(app) assets/styles/vendor.css -->
+        <!-- build:cssvendor(app) {{relpath}}assets/styles/vendor.css -->
         <!-- bower:css -->
         <!-- endbower -->
         <!-- endbuild -->
 
-        <!-- build:css assets/styles/main.css -->
-        <link rel="stylesheet" href="assets/styles/main.css">
+        <!-- build:css {{relpath}}assets/styles/main.css -->
+        <link rel="stylesheet" href="{{relpath}}assets/styles/main.css">
         <!-- endbuild -->
 
     </head>
@@ -22,26 +22,28 @@
         <div class="wrapper">
             {{> header }}
             {% body %}
-            {{> footer }}
         </div>
-
-        <script src="assets/scripts/vendor/jquery-2.2.4.min.js"></script>
        
-        <!-- build:jsvendor(app) assets/scripts/vendor/vendor.js -->
+        <!-- build:jsvendor(app{{#if @root.isNotRoot}}/assets{{/if}}) {{relpath}}assets/scripts/vendor/vendor.js -->
+        <script src="{{relpath}}assets/scripts/vendor/jquery-2.2.4.min.js"></script>
         <!-- bower:js -->
         <!-- endbower -->
         <!-- endbuild -->
 
-        <!-- build:js(app) assets/scripts/main.js -->
-        <script src="components/hero/hero.js"></script>
-        <script src="components/fragment/fragment.js"></script>
-        <script src="components/nav/nav.js"></script>
-        <script src="components/footer/footer.js"></script>
-        <script src="components/header/header.js"></script>
-        <script src="assets/scripts/core/controller.js"></script>
-        <script src="assets/scripts/util.js"></script>
-        <script src="assets/scripts/global.js"></script>
-        <script src="pages/index/index.js"></script>
+        <!-- build:js(app{{#if @root.isNotRoot}}/assets{{/if}}) {{relpath}}assets/scripts/main.js -->
+        <script src="components/article/article.js"></script>
+        <script src="components/form/form.js"></script>
+        <script src="{{relpath}}components/hero/hero.js"></script>
+        <script src="{{relpath}}components/fragment/fragment.js"></script>
+        <script src="{{relpath}}components/nav/nav.js"></script>
+        <script src="{{relpath}}components/footer/footer.js"></script>
+        <script src="{{relpath}}components/header/header.js"></script>
+        <script src="{{relpath}}assets/scripts/core/controller.js"></script>
+        <script src="{{relpath}}assets/scripts/util.js"></script>
+        <script src="{{relpath}}assets/scripts/global.js"></script>
+        <script src="{{relpath}}pages/index.js"></script>
+        <script src="{{relpath}}pages/blog/blog.js"></script>
+        <script src="{{relpath}}pages/contacto/contacto.js"></script>
         <!-- endbuild -->
 
     </body>
