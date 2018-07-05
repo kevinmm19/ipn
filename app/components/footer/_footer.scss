@@ -2,10 +2,17 @@
 
 .footer {
     background-color: $colorBackground9;
-    // background-color: rgba(0, 0, 0, 0.25);
-    // box-shadow: 0px 10px 30px 10px rgba(0, 0, 0, 0.3);
+    @include respond-to($desktop) {
+        padding: 25px 40px;
+    }
     .text {
-        font-size: 12px;
+        font-size: 13px;
         color: $colorText1;
+    }
+    &--alt {
+        background-color: $colorText1;
+        .text {
+            color: $colorBackground9;
+        }
     }
 }
