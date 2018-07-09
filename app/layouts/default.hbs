@@ -31,8 +31,8 @@
         <!-- endbuild -->
 
         <!-- build:js(app{{#if @root.isNotRoot}}/assets{{/if}}) {{relpath}}assets/scripts/main.js -->
-        <script src="components/article/article.js"></script>
-        <script src="components/form/form.js"></script>
+        <script src="{{relpath}}components/article/article.js"></script>
+        <script src="{{relpath}}components/form/form.js"></script>
         <script src="{{relpath}}components/hero/hero.js"></script>
         <script src="{{relpath}}components/fragment/fragment.js"></script>
         <script src="{{relpath}}components/nav/nav.js"></script>
@@ -41,6 +41,7 @@
         <script src="{{relpath}}assets/scripts/core/controller.js"></script>
         <script src="{{relpath}}assets/scripts/util.js"></script>
         <script src="{{relpath}}assets/scripts/global.js"></script>
+        <script src="{{relpath}}assets/scripts/app.js"></script>
         <script src="{{relpath}}pages/index.js"></script>
         <script src="{{relpath}}pages/blog/blog.js"></script>
         <script src="{{relpath}}pages/contacto/contacto.js"></script>

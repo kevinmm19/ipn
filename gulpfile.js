@@ -16,7 +16,7 @@ var gutil = require('gulp-util');
 var watch = require('gulp-watch');
 var helpers = require('handlebars-helpers')();
 var runSequence = require('run-sequence');
-
+var mongoose = require('mongoose');
 
 gulp.task('sass', function(){
   return gulp.src('app/assets/styles/**/*.scss')

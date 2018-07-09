@@ -8,6 +8,7 @@
     "assemble": "~0.23.0",
     "browser-sync": "~2.18.8",
     "del": "~2.2.0",
+    "get-value": "~2.0.3",
     "gulp": "~3.9.1",
     "gulp-autoprefixer": "~3.1.0",
     "gulp-cssnano": "~2.1.1",
@@ -25,11 +26,11 @@
     "gulp-uglify": "~2.1.0",
     "gulp-usemin": "~0.3.20",
     "gulp-util": "~3.0.7",
-    "main-bower-files": "~2.13.1",
     "handlebars-helpers": "github:assemble/handlebars-helpers#dev",
+    "main-bower-files": "~2.13.1",
+    "mongoose": "^5.2.1",
     "multimatch": "~2.1.0",
-    "run-sequence": "~1.2.2",
-    "get-value": "~2.0.3"
+    "run-sequence": "~1.2.2"
   },
   "engines": {
     "node": ">=0.12.2"
