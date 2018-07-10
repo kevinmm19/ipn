@@ -7,23 +7,26 @@ var bodyParser = require('body-parser');
 var expressHbs = require('express-handlebars');
 var mongoose = require('mongoose');
 
+// routes
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
-var app = express();
-//mongoose.connect('localhost:27017/ipn');
+// mongoDB connection
+const app = express();
 mongoose.connect('mongodb://localhost/ipn');
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'Connection error: '));
 db.once('open', function() {
-    console.log('We are connected!');
+    console.log('Connected');
 });
 
-// view engine setup
-//app.set('views', path.join(__dirname, 'views'));
+// Register Handlebars view engine
 app.engine('.hbs', expressHbs({defaultLayout: 'layout', extname: '.hbs'}));
+// Use Handlebars view engine
 app.set('view engine', '.hbs');
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
