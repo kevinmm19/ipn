@@ -1,0 +1,20 @@
+/* ----- Nav component styles ----- */
+
+.nav {
+    &__list {
+
+    }
+    &__item {
+        
+    }
+    &__link {
+        padding-right: 15px;
+        font-size: 16px;
+        color: $colorText1;
+        letter-spacing: 1px;
+        @include respond-to($tablet) {
+            padding-right: 30px;
+            font-size: 18px;
+        }
+    }
+}

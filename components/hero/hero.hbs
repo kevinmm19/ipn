@@ -1,0 +1,10 @@
+<section class="hero container" data-action="hero">
+    {{#with (lookup hero @root.name)}}
+        <h1 class="hero__title js-hero-title">
+            {{{title}}}
+        </h1>
+        <p class="hero__description">{{{description}}}</p>
+        {{!-- <h3>Casos de éxito</h3>
+        <p>BAYER | KEITH & RAMIREZ | LOGOSOFT | INTERBOLSA | CAPRIS BRUNCA SOLUCIONES FINANCIERAS | TORNECA | CORPORACION ALVAREZ & MARIN</p> --}}
+    {{/with}}
+</section>

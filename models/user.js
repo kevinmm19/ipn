@@ -4,8 +4,8 @@ var Schema = mongoose.Schema;
 var userSchema = new Schema({
     name: String,
     email: String,
-    created_at: { type: Date, default: Date.now },
-    updated_at: { type: Date, default: Date.now },
+    number: String,
+    createdAt: { type: Date, default: Date.now },
     active: Boolean
 });
 

@@ -1,10 +1,50 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>{{title}}</title>
-        <link rel='stylesheet' href='/stylesheets/style.css' />
+        <meta name="description" content="IPN Ingeniería de Procesos de Negocios">
+        <meta name="keywords" content="IPN, Ingeniería de Procesos de Negocios, procesos, negocios">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- build:cssvendor(app) {{relpath}}public/styles/vendor.css -->
+        <!-- bower:css -->
+        <!-- endbower -->
+        <!-- endbuild -->
+
+        <!-- build:css {{relpath}}public/styles/style.css -->
+        <link rel="stylesheet" href="{{relpath}}public/styles/style.css">
+        <!-- endbuild -->
     </head>
     <body>
-        {{{body}}}
+        <div class="wrapper">
+            {{> header }}
+            {{{body}}}
+        </div>
+       
+        <!-- build:jsvendor(app{{#if @root.isNotRoot}}/public{{/if}}) {{relpath}}public/scripts/vendor/vendor.js -->
+        <script src="{{relpath}}public/scripts/vendor/jquery-2.2.4.min.js"></script>
+        <!-- bower:js -->
+        <!-- endbower -->
+        <!-- endbuild -->
+
+        <!-- build:js(app{{#if @root.isNotRoot}}/public{{/if}}) {{relpath}}public/scripts/main.js -->
+        <script src="{{relpath}}components/article/article.js"></script>
+        <script src="{{relpath}}components/form/form.js"></script>
+        <script src="{{relpath}}components/hero/hero.js"></script>
+        <script src="{{relpath}}components/fragment/fragment.js"></script>
+        <script src="{{relpath}}components/nav/nav.js"></script>
+        <script src="{{relpath}}components/footer/footer.js"></script>
+        <script src="{{relpath}}components/header/header.js"></script>
+        <script src="{{relpath}}public/scripts/core/controller.js"></script>
+        <script src="{{relpath}}public/scripts/util.js"></script>
+        <script src="{{relpath}}public/scripts/global.js"></script>
+        <script src="{{relpath}}public/scripts/app.js"></script>
+        <script src="{{relpath}}views/index.js"></script>
+        <script src="{{relpath}}views/blog/blog.js"></script>
+        <script src="{{relpath}}views/contacto/contacto.js"></script>
+        <!-- endbuild -->
+
     </body>
 </html>

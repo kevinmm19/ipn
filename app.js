@@ -7,12 +7,18 @@ var bodyParser = require('body-parser');
 var expressHbs = require('express-handlebars');
 var mongoose = require('mongoose');
 
+// sass
+var sassMiddleware = require('node-sass-middleware');
+var srcPath = __dirname + '/sass';
+var destPath = __dirname + '/public/styles';
+
 // routes
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var blogRouter = require('./routes/blog');
+var contactRouter = require('./routes/contact');
 
 // mongoDB connection
-const app = express();
+var app = express();
 mongoose.connect('mongodb://localhost/ipn');
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'Connection error: '));
@@ -20,8 +26,42 @@ db.once('open', function() {
     console.log('Connected');
 });
 
+// adding the sass middleware
+app.use(
+  sassMiddleware({
+      src: srcPath, 
+      dest: destPath,
+      debug: true,
+      outputStyle: 'compressed',
+      prefix: '/styles'
+  })
+);
+
 // Register Handlebars view engine
-app.engine('.hbs', expressHbs({defaultLayout: 'layout', extname: '.hbs'}));
+app.engine('.hbs', 
+  expressHbs({
+    defaultLayout: 'layout',
+    extname: '.hbs',
+    partialsDir  : [
+      __dirname + '/components/article',
+      __dirname + '/components/footer',
+      __dirname + '/components/form',
+      __dirname + '/components/fragment',
+      __dirname + '/components/header',
+      __dirname + '/components/hero',
+      __dirname + '/components/nav'
+    ],
+    helpers: {
+      is: function (value1, value2) {
+        if(value1 === value2) {
+          return true;
+        } else 
+          return false;
+      }
+    }
+  })
+);
+
 // Use Handlebars view engine
 app.set('view engine', '.hbs');
 
@@ -33,8 +73,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('./', indexRouter);
+app.use('./blog/', blogRouter);
+app.use('./contacto/', contactRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -49,7 +90,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.render('./error/');
 });
 
 module.exports = app;

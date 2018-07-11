@@ -1,12 +1,12 @@
 var express = require('express');
 var router = express.Router();
-var blog = require('../models/article');
+var project = require('../models/project');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  blog.find(function(err, content) {
+  project.find(function(err, content) {
     console.log('Length: ' + content.length);
-    res.render('index', { title: 'Blog', articles: content });
+    res.render('index', { title: 'Blog', projects: content });
   });
 });
 

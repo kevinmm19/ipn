@@ -1,34 +1,15 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
-{{#with article}}
-
-{{#each articles}}
-    <div class="thumbnail">
-        <div class="caption">
-            <h3>{{ this.title }}</h3>
-            <br>
-            <small> {{ this.author }} </small>
-            <br>
-            <p class="intro">{{ this.intro }}</p>
-            <p class="url">{{ this.url }}</p>
-            <p class="image">{{ this.image }}</p>
-            <p class="date">{{ this.date }}</p>
-        </div>
+---
+relpath: ./
+title: IPN
+name: home
+---
+<main class="main index" data-action="index">
+    {{> hero }}
+    <div class="content__wrapper">
+        {{> fragment class='about'}}
+        {{> fragment class='services'}}
+        {{> fragment class='projects'}}
+        {{> fragment class='more'}}
+        {{> footer class=' footer--alt'}}
     </div>
-{{/each}}
-
-{{/with}}
-{{#each articles}}
-    <div class="thumbnail">
-        <div class="caption">
-            <h3>{{ this.title }}</h3>
-            <br>
-            <small> {{ this.author }} </small>
-            <br>
-            <p class="intro">{{ this.intro }}</p>
-            <p class="url">{{ this.url }}</p>
-            <p class="image">{{ this.image }}</p>
-            <p class="date">{{ this.date }}</p>
-        </div>
-    </div>
-{{/each}}
+</main>
