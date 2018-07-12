@@ -26,12 +26,6 @@ db.once('open', function() {
   console.log('Connected');
 });
 
-// Make our db accessible to our router
-app.use(function(req,res,next){
-  req.db = db;
-  next();
-});
-
 // adding the sass middleware
 app.use(
   sassMiddleware({
@@ -96,7 +90,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.render('error', { title: 'IPN - Error', name: 'error', relpath: './', isNotRoot: true });
 });
 
 module.exports = app;

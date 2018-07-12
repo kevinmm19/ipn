@@ -1,5 +1,5 @@
-{{#is class 'about'}}
-    <section id="{{class}}" class="fragment fragment--{{class}} container" data-action="fragment">
+{{#if about}}
+    <section id="fragment-about" class="fragment fragment--about container" data-action="fragment">
         <div class="flex">
             <div class="flex__item-2">
                 <h2 class="fragment__title">IPN</h2>
@@ -14,9 +14,9 @@
             </div>
         </div>
     </section>
-{{/is}}
-{{#is class 'services'}}
-    <section id="{{class}}" class="fragment fragment--alt fragment--{{class}} container" data-action="fragment">
+{{/if}}
+{{#if services}}
+    <section id="fragment-services" class="fragment fragment--alt fragment--services container" data-action="fragment">
         <h2 class="fragment__title">Servicios</h2>
         <div class="flex">
             <div class="fragment__item flex__item">
@@ -60,9 +60,9 @@
             </div>
         </div>
     </section>
-{{/is}}
-{{#is class 'projects'}}
-    <section id="{{class}}" class="fragment fragment--{{class}} container" data-action="fragment">
+{{/if}}
+{{#if projects}}
+    <section id="fragment-projects" class="fragment fragment--projects container" data-action="fragment">
         <h2 class="fragment__title">Proyectos</h2>
         <div class="flex">
             <div class="fragment__item flex__item">
@@ -106,9 +106,9 @@
             </div>
         </div>
     </section>
-{{/is}}
-{{#is class 'more'}}
-    <section id="{{class}}" class="fragment fragment--alt fragment--{{class}} container" data-action="fragment">
+{{/if}}
+{{#if more}}
+    <section id="fragment-more" class="fragment fragment--alt fragment--more container" data-action="fragment">
         <h2 class="fragment__title">Más información</h2>
         <div class="flex">
             <div class="fragment__item flex__item-2">
@@ -124,4 +124,4 @@
             </div>
         </div>
     </section>
-{{/is}}
+{{/if}}

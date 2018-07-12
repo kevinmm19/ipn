@@ -10,7 +10,7 @@ var userSchema = new Schema({
 });
 
 // User model creation to use the userSchema
-var User = mongoose.model('User', userSchema);
+var User = mongoose.model('User', userSchema, 'user');
 
 // make this available to the user in the Node application
 module.exports = User;

@@ -6,7 +6,7 @@ var blog = require('../models/article');
 router.get('/blog', function(req, res, next) {
   blog.find(function(err, content) {
     console.log('Length: ' + content.length);
-    res.render('blog', { title: 'Blog', articles: content });
+    res.render('blog', { title: 'IPN - Blog', name: 'blog', relpath: './', isNotRoot: true, articles: content });
   });
 });
 

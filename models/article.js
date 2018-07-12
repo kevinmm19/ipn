@@ -12,7 +12,7 @@ var articleSchema = new Schema({
 });
 
 // Article model creation to use the articleSchema
-var Article = mongoose.model('Article', articleSchema);
+var Article = mongoose.model('Article', articleSchema, 'article');
 
 // methods
 Article.find({}, function(err, articles) {

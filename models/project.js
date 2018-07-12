@@ -9,7 +9,7 @@ var projectSchema = new Schema({
 });
 
 // Project model creation to use the projectSchema
-var Project = mongoose.model('Project', projectSchema);
+var Project = mongoose.model('Project', projectSchema, 'project');
 
 // methods
 Project.find({}, function(err, projects) {

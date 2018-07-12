@@ -1,8 +1,3 @@
----
-relpath: ./
-title: IPN
-name: home
----
 <main class="main index" data-action="index">
     {{#each projects}}
         <div class="thumbnail">
@@ -18,10 +13,10 @@ name: home
     {{/each}}
     {{> hero }}
     <div class="content__wrapper">
-        {{> fragment class='about'}}
-        {{> fragment class='services'}}
-        {{> fragment class='projects'}}
-        {{> fragment class='more'}}
+        {{> fragment about=true}}
+        {{> fragment services=true}}
+        {{> fragment projects=true}}
+        {{> fragment more=true}}
         {{> footer class=' footer--alt'}}
     </div>
 </main>
