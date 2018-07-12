@@ -23,7 +23,13 @@ mongoose.connect('mongodb://localhost/ipn');
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'Connection error: '));
 db.once('open', function() {
-    console.log('Connected');
+  console.log('Connected');
+});
+
+// Make our db accessible to our router
+app.use(function(req,res,next){
+  req.db = db;
+  next();
 });
 
 // adding the sass middleware
@@ -43,13 +49,13 @@ app.engine('.hbs',
     defaultLayout: 'layout',
     extname: '.hbs',
     partialsDir  : [
-      __dirname + '/components/article',
-      __dirname + '/components/footer',
-      __dirname + '/components/form',
-      __dirname + '/components/fragment',
-      __dirname + '/components/header',
-      __dirname + '/components/hero',
-      __dirname + '/components/nav'
+      __dirname + '/public/components/article',
+      __dirname + '/public/components/footer',
+      __dirname + '/public/components/form',
+      __dirname + '/public/components/fragment',
+      __dirname + '/public/components/header',
+      __dirname + '/public/components/hero',
+      __dirname + '/public/components/nav'
     ],
     helpers: {
       is: function (value1, value2) {
@@ -73,9 +79,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('./', indexRouter);
-app.use('./blog/', blogRouter);
-app.use('./contacto/', contactRouter);
+app.use('/', indexRouter);
+app.use('/blog', blogRouter);
+app.use('/contacto', contactRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -90,7 +96,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('./error/');
+  res.render('error');
 });
 
 module.exports = app;

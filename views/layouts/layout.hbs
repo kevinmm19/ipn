@@ -8,13 +8,13 @@
         <meta name="keywords" content="IPN, Ingeniería de Procesos de Negocios, procesos, negocios">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- build:cssvendor(app) {{relpath}}public/styles/vendor.css -->
+        <!-- build:cssvendor(app) {{relpath}}/styles/vendor.css -->
         <!-- bower:css -->
         <!-- endbower -->
         <!-- endbuild -->
 
-        <!-- build:css {{relpath}}public/styles/style.css -->
-        <link rel="stylesheet" href="{{relpath}}public/styles/style.css">
+        <!-- build:css {{relpath}}/styles/style.css -->
+        <link rel="stylesheet" href="{{relpath}}/styles/style.css">
         <!-- endbuild -->
     </head>
     <body>
@@ -23,13 +23,13 @@
             {{{body}}}
         </div>
        
-        <!-- build:jsvendor(app{{#if @root.isNotRoot}}/public{{/if}}) {{relpath}}public/scripts/vendor/vendor.js -->
-        <script src="{{relpath}}public/scripts/vendor/jquery-2.2.4.min.js"></script>
+        <!-- build:jsvendor(app{{#if @root.isNotRoot}}/{{/if}}) {{relpath}}/scripts/vendor/vendor.js -->
+        <script src="{{relpath}}/scripts/vendor/jquery-2.2.4.min.js"></script>
         <!-- bower:js -->
         <!-- endbower -->
         <!-- endbuild -->
 
-        <!-- build:js(app{{#if @root.isNotRoot}}/public{{/if}}) {{relpath}}public/scripts/main.js -->
+        <!-- build:js(app{{#if @root.isNotRoot}}/{{/if}}) {{relpath}}/scripts/main.js -->
         <script src="{{relpath}}components/article/article.js"></script>
         <script src="{{relpath}}components/form/form.js"></script>
         <script src="{{relpath}}components/hero/hero.js"></script>
@@ -37,13 +37,9 @@
         <script src="{{relpath}}components/nav/nav.js"></script>
         <script src="{{relpath}}components/footer/footer.js"></script>
         <script src="{{relpath}}components/header/header.js"></script>
-        <script src="{{relpath}}public/scripts/core/controller.js"></script>
-        <script src="{{relpath}}public/scripts/util.js"></script>
-        <script src="{{relpath}}public/scripts/global.js"></script>
-        <script src="{{relpath}}public/scripts/app.js"></script>
-        <script src="{{relpath}}views/index.js"></script>
-        <script src="{{relpath}}views/blog/blog.js"></script>
-        <script src="{{relpath}}views/contacto/contacto.js"></script>
+        <script src="{{relpath}}scripts/views/index.js"></script>
+        <script src="{{relpath}}scripts/views/blog.js"></script>
+        <script src="{{relpath}}scripts/views/contacto.js"></script>
         <!-- endbuild -->
 
     </body>

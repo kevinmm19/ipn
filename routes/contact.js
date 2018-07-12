@@ -6,7 +6,7 @@ var user = require('../models/user');
 router.get('/contacto', function(req, res, next) {
   user.find(function(err, content) {
     console.log('Length: ' + content.length);
-    res.render('/contacto/index', { title: 'Blog', users: content });
+    res.render('contacto', { title: 'Contacto', users: content });
   });
 });
 

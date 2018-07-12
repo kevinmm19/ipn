@@ -4,6 +4,18 @@ title: IPN
 name: home
 ---
 <main class="main index" data-action="index">
+    {{#each projects}}
+        <div class="thumbnail">
+            <div class="caption">
+                <h3>{{ this.name }}</h3>
+                <br>
+                <small> {{ this.duration }} </small>
+                <br>
+                <p class="intro">{{ this.goal }}</p>
+                <p class="url">{{ this.success }}</p>
+            </div>
+        </div>
+    {{/each}}
     {{> hero }}
     <div class="content__wrapper">
         {{> fragment class='about'}}

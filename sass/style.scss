@@ -12,10 +12,10 @@
 /* ----- Component Styles ----- */
 
 // Page-specific overrides for a given component should still be placed in the *component* scss.
-@import "../components/header/header";
-@import "../components/footer/footer";
-@import "../components/nav/nav";
-@import "../components/fragment/fragment";
-@import "../components/hero/hero";
-@import "../components/form/form";
-@import "../components/article/article";
+@import "../public/components/header/header";
+@import "../public/components/footer/footer";
+@import "../public/components/nav/nav";
+@import "../public/components/fragment/fragment";
+@import "../public/components/hero/hero";
+@import "../public/components/form/form";
+@import "../public/components/article/article";
