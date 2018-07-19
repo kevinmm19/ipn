@@ -78,6 +78,11 @@ app.use('/', indexRouter);
 app.use('blog', blogRouter);
 app.use('contacto', contactRouter);
 
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  next();
+});
+
 app.use(function(err, req, res, next){
   // set locals, only providing error in development
   res.locals.message = err.message;
@@ -88,39 +93,4 @@ app.use(function(err, req, res, next){
   res.render('error', { error: err, title: 'IPN - Error', name: 'error', relpath: './', isNotRoot: true });
 });
 
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next();
-});
-
 module.exports = app;
-
-// app.get('/404', function(req, res, next) {
-//   next();
-// });
-
-// app.get('/403', function(req, res, next) {
-//   var err = new Error('No permitido');
-//   err.status = 403;
-//   next(err);
-// });
-
-// app.get('/500', function(req, res, next){
-//   next(new Error('Verificar URL'));
-// });
-
-// Error handlers
-// app.use(function(req, res, next){
-//   res.status(404);
-//   res.format({
-//     html: function () {
-//       res.render('error', { url: req.url, title: 'IPN - Error', name: 'error', relpath: './', isNotRoot: true })
-//     },
-//     json: function () {
-//       res.json({ error: 'No encontrado' })
-//     },
-//     default: function () {
-//       res.type('txt').send('No encontrado')
-//     }
-//   })
-// });
