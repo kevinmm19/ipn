@@ -19,8 +19,8 @@ Article.find({}, function(err, articles) {
     if (err) throw err;
   
     // object of all the articles
-    console.log('Length: ' + articles.length);
-    console.log(articles);
+    console.log('Articles Found: ' + articles.length);
+    //console.log(articles);
 });
 
 // make this available to the user in the Node application

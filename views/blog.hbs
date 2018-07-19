@@ -1,6 +1,18 @@
 <main class="main blog" data-action="blog">
     {{> hero }}
     <div class="content__wrapper">
+        {{#each articles}}
+            <div class="thumbnail">
+                <div class="caption">
+                    <h3>{{ this.title }}</h3>
+                    <br>
+                    <small> {{ this.author }} </small>
+                    <br>
+                    <p class="intro">{{ this.intro }}</p>
+                    <p class="url">{{ this.url }}</p>
+                </div>
+            </div>
+        {{/each}}
         {{> article }}
         {{> footer }}
     </div>

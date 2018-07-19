@@ -64,7 +64,7 @@ app.engine('.hbs',
 
 // Use Handlebars view engine
 app.set('view engine', '.hbs');
-
+app.set('views', path.join(__dirname, 'views'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(logger('dev'));
@@ -73,24 +73,54 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Routes Handlers
 app.use('/', indexRouter);
-app.use('/blog', blogRouter);
-app.use('/contacto', contactRouter);
+app.use('blog', blogRouter);
+app.use('contacto', contactRouter);
 
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
-});
-
-// error handler
-app.use(function(err, req, res, next) {
+app.use(function(err, req, res, next){
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
-
+  
   // render the error page
   res.status(err.status || 500);
-  res.render('error', { title: 'IPN - Error', name: 'error', relpath: './', isNotRoot: true });
+  res.render('error', { error: err, title: 'IPN - Error', name: 'error', relpath: './', isNotRoot: true });
+});
+
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  next();
 });
 
 module.exports = app;
+
+// app.get('/404', function(req, res, next) {
+//   next();
+// });
+
+// app.get('/403', function(req, res, next) {
+//   var err = new Error('No permitido');
+//   err.status = 403;
+//   next(err);
+// });
+
+// app.get('/500', function(req, res, next){
+//   next(new Error('Verificar URL'));
+// });
+
+// Error handlers
+// app.use(function(req, res, next){
+//   res.status(404);
+//   res.format({
+//     html: function () {
+//       res.render('error', { url: req.url, title: 'IPN - Error', name: 'error', relpath: './', isNotRoot: true })
+//     },
+//     json: function () {
+//       res.json({ error: 'No encontrado' })
+//     },
+//     default: function () {
+//       res.type('txt').send('No encontrado')
+//     }
+//   })
+// });

@@ -16,8 +16,8 @@ Project.find({}, function(err, projects) {
     if (err) throw err;
   
     // object of all the projects
-    console.log('Length: ' + projects.length);
-    console.log(projects);
+    console.log('Projects Found: ' + projects.length);
+    //console.log(projects);
 });
 
 // make this available to the user in the Node application
