@@ -10,6 +10,7 @@
         font-size: 34px;
         color: $colorText1;
         letter-spacing: 1px;
+        text-transform: capitalize;
         @include respond-to($desktop) {
             font-size: 40px;
         }

@@ -33,7 +33,7 @@ app.use(
       dest: destPath,
       debug: true,
       outputStyle: 'compressed',
-      prefix: '/styles'
+      prefix: 'styles'
   })
 );
 
@@ -42,7 +42,7 @@ app.engine('.hbs',
   expressHbs({
     defaultLayout: 'layout',
     extname: '.hbs',
-    partialsDir  : [
+    partialsDir: [
       __dirname + '/public/components/article',
       __dirname + '/public/components/footer',
       __dirname + '/public/components/form',
@@ -75,12 +75,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Routes Handlers
 app.use('/', indexRouter);
-app.use('blog', blogRouter);
-app.use('contacto', contactRouter);
+app.use('/blog', blogRouter);
+app.use('/contacto', contactRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  next();
+  const err = new Error('Error 404: La página no existe.');
+  err.status = 404;
+  next(err);
 });
 
 app.use(function(err, req, res, next){
