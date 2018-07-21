@@ -8,6 +8,7 @@ router.get('/', function(req, res, next) {
     console.log('Articles: ' + content.length);
     res.render('blog', { 
         title: 'IPN - Blog',
+        heroTitle: 'Blog',
         name: 'blog',
         description: 'Artículos publicados en el periódico El Financiero',
         articles: content

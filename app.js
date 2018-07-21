@@ -19,12 +19,19 @@ var contactRouter = require('./routes/contact');
 
 // mongoDB connection
 var app = express();
-mongoose.connect('mongodb://localhost/ipn');
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'Connection error: '));
-db.once('open', function() {
-  console.log('Connected');
-});
+mongoose.connect(
+  'mongodb://localhost:27017/ipn',
+  { useNewUrlParser: true },
+  err => {
+      if (err) throw err;
+      console.log('Successfully connected to database.');
+  }
+);
+// var db = mongoose.connection;
+// db.on('error', console.error.bind(console, 'Connection error: '));
+// db.once('open', function() {
+//   console.log('Connected');
+// });
 
 // adding the sass middleware
 app.use(
@@ -33,7 +40,7 @@ app.use(
       dest: destPath,
       debug: true,
       outputStyle: 'compressed',
-      prefix: 'styles'
+      prefix: '/styles'
   })
 );
 
@@ -80,7 +87,7 @@ app.use('/contacto', contactRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  const err = new Error('Error 404: La página no existe.');
+  const err = new Error('¡La página no existe!');
   err.status = 404;
   next(err);
 });
@@ -88,11 +95,22 @@ app.use(function(req, res, next) {
 app.use(function(err, req, res, next){
   // set locals, only providing error in development
   res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-  
-  // render the error page
+  res.locals.dev = req.app.get('env') === 'development' ? true : false;
+  res.locals.error = res.locals.dev ? err : {};  
   res.status(err.status || 500);
-  res.render('error', { error: err, title: 'IPN - Error', name: 'error', relpath: './', isNotRoot: true });
+  if(err.status === 500) {
+    res.locals.message = '¡Error interno de servidor!'
+  }
+
+  // render the error page
+  res.render('error', {
+    title: 'IPN - Error',
+    heroTitle: err.status,
+    description: res.locals.message,
+    name: 'error',
+    dev: res.locals.dev,
+    error: err
+  });
 });
 
 module.exports = app;

@@ -6,7 +6,12 @@ var project = require('../models/project');
 router.get('/', function(req, res, next) {
   project.find(function(err, content) {
     console.log('Projects: ' + content.length);
-    res.render('index', { title: 'IPN', name: 'home', relpath: './', projects: content });
+    res.render('index', { 
+      title: 'IPN',
+      heroTitle: 'Ingeniería de Procesos de Negocios',
+      name: 'home',
+      description: 'Acompañando empresas líderes en el logro de resultados',
+      projects: content });
   });
 });
 

@@ -48,6 +48,9 @@ p {
         margin-bottom: 0;
     }
 }
+pre {
+    color: $colorText1;
+}
 
 /*------------------------------------*\
     CLASSES
@@ -65,6 +68,12 @@ p {
     box-shadow: 0 0 25px 12px rgba(0, 0, 0, 0.3);
     @include respond-to($content-width) {
         margin-bottom: 60px;
+    }
+    .error & {
+        padding: 40px;
+        p {
+            color: $colorText1;
+        }
     }
 }
 .main {
