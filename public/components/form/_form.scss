@@ -1,5 +1,35 @@
 /* ----- Form component styles ----- */
 
 .form {
-    background-color: $colorText1;
+    text-align: center;
+    background-color: $colorBackground9;
+    &__label {
+        color: $colorBackground4;
+        font-size: 18px;
+    }
+    &__input {
+        display: block;
+        margin: 10px 0 30px;
+        padding: 6px;
+        width: 100%;
+        font-size: 15px;
+        color: $colorBackground9;
+    }
+    &__message {
+        resize: none;
+        overflow: auto;
+    }
+    &__captcha {
+        
+    }
+    &__submit {
+        margin: 50px auto;
+        padding: 15px;
+        width: 100px;
+        font-size: 16px;
+        color: $colorBackground9;
+        background-color: $colorBackground4;
+        border: 0;
+        border-radius: 15%;
+    }
 }

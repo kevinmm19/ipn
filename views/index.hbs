@@ -1,21 +1,9 @@
 <main class="main index" data-action="index">
     {{> hero }}
     <div class="content__wrapper">
-        {{#each projects}}
-            <div class="thumbnail">
-                <div class="caption">
-                    <h3>{{ this.name }}</h3>
-                    <br>
-                    <small> {{ this.duration }} </small>
-                    <br>
-                    <p class="intro">{{ this.goal }}</p>
-                    <p class="url">{{ this.success }}</p>
-                </div>
-            </div>
-        {{/each}}
         {{> fragment about=true}}
         {{> fragment services=true}}
-        {{> fragment projects=true}}
+        {{> fragment portfolio=true}}
         {{> fragment more=true}}
         {{> footer class=' footer--alt'}}
     </div>

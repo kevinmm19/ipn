@@ -2,4 +2,36 @@
 
 .article {
     background-color: $colorText1;
+    padding: 40px 20px;
+    &__item {
+        padding: 40px 20px;
+        @include respond-to($desktop) {
+            padding: 40px;
+        }
+    }
+    &__title {
+        padding: 0 0 20px;
+        color: $colorBackground9;
+        text-align: center;
+    }
+    &__subtitle {
+        padding: 0 0 20px;
+        text-align: center;
+        font-weight: normal;
+    }
+    &__date {
+        color: $colorBackground4;
+    }
+    &__intro {
+        color: $colorBackground9;
+    }
+    &__img {
+        width: 100%;
+        &-container {
+            max-width: 100%;
+        }
+    }
+    &__link {
+        color: $colorBackground10;
+    }
 }

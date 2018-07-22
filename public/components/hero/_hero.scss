@@ -22,5 +22,14 @@
         @include respond-to($desktop) {
             font-size: 22px;
         }
+        .contacto & {
+            margin: 0 auto;
+            @include respond-to($tablet) {
+                max-width: 75%;
+            }
+            @include respond-to($desktop) {
+                font-size: 18px;
+            }
+        }
     }
 }

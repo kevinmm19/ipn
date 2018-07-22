@@ -61,49 +61,18 @@
         </div>
     </section>
 {{/if}}
-{{#if projects}}
+{{#if portfolio}}
     <section id="fragment-projects" class="fragment fragment--projects container" data-action="fragment">
         <h2 class="fragment__title">Proyectos</h2>
         <div class="flex">
-            <div class="fragment__item flex__item">
-                <h3 class="fragment__title">ISO 20 000</h3>
-                <h4 class="fragment__subtitle">Sistema de Gestión de Servicios</h4>
-                <p class="text">Gestione sus proveedores eficientemente.</p>
-                <p class="text">Asegure que su infraestructura soporte su negocio.</p>
-                <p class="text">Gestione las solicitudes, incidentes y problemas de TI.</p>
-                <p class="text">Desarrolle SLAs.(Service Level Agreements)</p>
-            </div>
-            <div class="fragment__item flex__item">
-                <h3 class="fragment__title">ISO 9001:2015</h3>
-                <h4 class="fragment__subtitle">Sistema de Gestión de Calidad</h4>
-                <p class="text">Asegure a todas las partes interesadas que se cumplen sus requisitos. Implemente controles que agreguen valor. Gestione la experiencia del cliente. Incorpore indicadores de desempeño que le puedan dar información valiosa para toma de decisiones. Implemente procesos formales de Auditoría Interna que potencialicen la mejora continua.</p>
-            </div>
-            <div class="fragment__item flex__item">
-                <h3 class="fragment__title">Plan de Continuidad de TI</h3>
-                <h4 class="fragment__subtitle">Desarrollo e implementación</h4>
-                <p class="text">Asegure la continuidad de los servicios de TI.</p>
-                <p class="text">Defina la estrategia para contingencia y recuperación de desastres.</p>
-            </div>
-            <div class="fragment__item flex__item">
-                <h3 class="fragment__title">ISO 31000</h3>
-                <h4 class="fragment__subtitle">Gestión de Riesgos</h4>
-                <p class="text">Asegure la continuidad de su servicio. Opere en condiciones seguras. Gestione su riesgo estratégico y operativo.</p>
-            </div>
-            <div class="fragment__item flex__item">
-                <h3 class="fragment__title">Ingeniería de Procesos</h3>
-                <h4 class="fragment__subtitle">Excelencia Operacional</h4>
-                <p class="text">Hacemos más productiva y eficiente su organización.</p>
-                <p class="text">Reduzca sus costos. Elimine gastos innecesarios.</p>
-                <p class="text">Mejore significativamente el Servicio.</p>
-            </div>
-            <div class="fragment__item flex__item">
-                <h3 class="fragment__title">Gestión Estratégica</h3>
-                <h4 class="fragment__subtitle">Innovación del Modelo de Negocios</h4>
-                <p class="text">Diseño de propuesta de valor competitiva y sostenible.</p>
-                <p class="text">Generación de ScoreCards para seguimiento y control.</p>
-                <p class="text">Gestione las solicitudes, incidentes y problemas de TI.</p>
-                <p class="text">Desarrolle SLAs.(Service Level Agreements)</p>
-            </div>
+            {{#each projects}}
+                <div class="fragment__item flex__item">
+                    <h3 class="fragment__title">{{this.name}}</h3>
+                    <h4 class="fragment__subtitle">{{this.duration}}</h4>
+                    <p class="text">{{this.goal}}</p>
+                    <p class="text">{{this.success}}</p>
+                </div>
+            {{/each}}
         </div>
     </section>
 {{/if}}

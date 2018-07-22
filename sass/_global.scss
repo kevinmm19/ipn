@@ -48,9 +48,6 @@ p {
         margin-bottom: 0;
     }
 }
-pre {
-    color: $colorText1;
-}
 
 /*------------------------------------*\
     CLASSES
@@ -73,6 +70,12 @@ pre {
         padding: 40px;
         p {
             color: $colorText1;
+        }
+    }
+    .contacto & {
+        @include respond-to($desktop) {
+            margin: 0 auto 60px;
+            width: 50%;
         }
     }
 }

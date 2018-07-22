@@ -16,6 +16,8 @@
         <!-- build:css /styles/style.css -->
         <link rel="stylesheet" href="styles/style.css">
         <!-- endbuild -->
+
+        <script src='https://www.google.com/recaptcha/api.js'></script>
     </head>
     <body>
         <div class="wrapper">
@@ -23,13 +25,13 @@
             {{{body}}}
         </div>
        
-        <!-- build:jsvendor(app{{#if @root.isNotRoot}}/{{/if}}) /scripts/vendor/vendor.js -->
+        <!-- build:jsvendor(app) /scripts/vendor/vendor.js -->
         <script src="scripts/vendor/jquery-2.2.4.min.js"></script>
         <!-- bower:js -->
         <!-- endbower -->
         <!-- endbuild -->
 
-        <!-- build:js(app{{#if @root.isNotRoot}}/{{/if}}) /scripts/main.js -->
+        <!-- build:js(app) /scripts/main.js -->
         <script src="components/article/article.js"></script>
         <script src="components/form/form.js"></script>
         <script src="components/hero/hero.js"></script>
