@@ -106,4 +106,20 @@ p {
             align-self: flex-start;
         }
     }
+    &--article {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        align-content: space-around;
+        @include respond-to($tablet) {
+            .flex__item {
+                flex: 1 1 50%;
+                width: 50%;
+                align-self: flex-start;
+                &:first-of-type {
+                    padding-right: 25px;
+                }
+            }
+        }
+    }
 }

@@ -9,6 +9,10 @@
 @import "mixins";
 @import "global";
 
+/* ----- Vendor Styles ----- */
+@import "vendor/slick-theme";
+@import "vendor/slick";
+
 /* ----- Component Styles ----- */
 
 // Page-specific overrides for a given component should still be placed in the *component* scss.

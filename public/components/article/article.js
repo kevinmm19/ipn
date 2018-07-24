@@ -5,7 +5,13 @@ var APP = window.APP = window.APP || {};
 APP.article = (function () {
 
     var bindEventsToUI = function () {
-
+        $('.js-slick').slick({
+            dots: true,
+            infinite: true,
+            speed: 300,
+            slidesToShow: 1,
+            adaptiveHeight: true
+        });
     };
 
     var init = function () {

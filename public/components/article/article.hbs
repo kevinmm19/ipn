@@ -1,14 +1,18 @@
-<section class="article" data-action="article">
+<section class="article js-slick" data-action="article">
     {{#each articles}}
         <article class="article__item">
             <h3 class="article__title">{{this.title}}</h3>
             <h4 class="article__subtitle">{{this.author}}</h4>
             <p class="text article__date">{{this.date}}</p>
-            <p class="text article__intro">{{this.intro}}</p>
-            <div class="article__img-container">
-                <img src="/images/{{this.image}}" alt="{{this.title}}" class="article__img">
+            <div class="flex--article">
+                <div class="flex__item article__intro-container">
+                    <p class="text article__intro">{{this.intro}}</p>
+                    <a href="{{this.url}}" class="article__link" target="_blank">Ver artículo completo</a>
+                </div>
+                <div class="flex__item article__img-container">
+                    <img src="/images/{{this.image}}" alt="{{this.title}}" class="article__img">
+                </div>
             </div>
-            <a href="{{this.url}}" class="article__link" target="_blank">Ver artículo</a>
         </article>
     {{/each}}
 </section>

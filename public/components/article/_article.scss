@@ -2,10 +2,14 @@
 
 .article {
     background-color: $colorText1;
-    padding: 40px 20px;
+    padding: 40px 20px 50px;
+    @include respond-to($tablet) {
+        padding: 40px 60px 80px;
+    }
     &__item {
         padding: 40px 20px;
-        @include respond-to($desktop) {
+        overflow: hidden;
+        @include respond-to($tablet) {
             padding: 40px;
         }
     }
@@ -24,14 +28,80 @@
     }
     &__intro {
         color: $colorBackground9;
+        &-container {
+            order: 2;
+            @include respond-to($tablet) {
+                order: 1;
+            }
+        }
     }
     &__img {
+        max-height: 340px;
         width: 100%;
+        margin: 0 auto;
+        @include respond-to($tablet) {
+            max-height: 200px;
+        }
+        @include respond-to($desktop) {
+            max-height: 250px;
+        }
         &-container {
+            margin: 0 auto;
+            padding: 0 0 10px;
             max-width: 100%;
+            order: 1;
+            @include respond-to($tablet) {
+                padding: 0;
+                order: 2;
+            }
         }
     }
     &__link {
+        display: inline-block;
+        padding: 10px 0;
         color: $colorBackground10;
+    }
+    /* ----- Slick override styles ----- */
+    &.slick-dotted.slick-slider {
+        margin-bottom: 0;
+    }
+    .slick-prev,
+    .slick-next {
+        z-index: 1;
+        top: 30px;
+        @include respond-to($tablet) {
+            top: 50%;
+        }
+    }
+    .slick-prev {
+        left: 30px;
+    }
+    .slick-next {
+        right: 50px;
+    }
+    .slick-prev:before, 
+    .slick-next:before {
+        font-size: 40px;
+        color: $colorBackground4;
+        opacity: 1;
+    }
+    .slick-dots {
+        bottom: 35px;
+        width: calc(100% - 40px);
+        @include respond-to($tablet) {
+            bottom: 50px;
+            width: calc(100% - 120px);
+        }
+        li button {
+            background-color: $colorBackground10;
+            border-radius: 50%;
+            &:before {
+                content: ' ';
+            }
+        }
+        li.slick-active button {
+            background-color: $colorText1;
+            border: 1px solid $colorBackground10;
+        }
     }
 }
