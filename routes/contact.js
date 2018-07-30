@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
       title: 'IPN - Contacto',
       heroTitle: 'Contacto',
       name: 'contacto',
-      description: 'IPN pone a su disposición nuestro call center: (506) 2280-8787, ó complete el siguiente formulario y nos estaremos comunicando con usted. También puede comunicarse con nosotros al siguiente correo electrónico: info@ipn.co.cr', 
+      description: 'Complete el siguiente formulario y nos estaremos comunicando con usted. También puede comunicarse con nosotros al siguiente correo electrónico: info@ipn.co.cr', 
       users: content });
   });
 });

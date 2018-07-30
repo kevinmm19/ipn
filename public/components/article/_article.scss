@@ -74,16 +74,30 @@
         }
     }
     .slick-prev {
-        left: 30px;
+        left: 20px;
+        @include respond-to($tablet) {
+            left: 30px;
+        }
     }
     .slick-next {
-        right: 50px;
+        right: 35px;
+        @include respond-to($tablet) {
+            right: 50px;
+        }
     }
     .slick-prev:before, 
     .slick-next:before {
         font-size: 40px;
         color: $colorBackground4;
         opacity: 1;
+    }
+    .slick-prev:hover,
+    .slick-prev:focus,
+    .slick-next:hover,
+    .slick-next:focus {
+        &:before {
+            color: $colorBackground9;
+        }
     }
     .slick-dots {
         bottom: 35px;
@@ -93,10 +107,15 @@
             width: calc(100% - 120px);
         }
         li button {
+            height: 15px;
+            width: 15px;
             background-color: $colorBackground10;
             border-radius: 50%;
             &:before {
                 content: ' ';
+            }
+            &:focus {
+                outline: 1px dotted $colorBackground9;
             }
         }
         li.slick-active button {

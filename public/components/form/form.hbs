@@ -1,26 +1,25 @@
-<form action="" method="post" class="form container" data-action="form">
+<form action="/send" method="post" class="form container" data-action="form">
     <div class="form__row">
         <label class="form__label" for="name">Nombre completo</label>
-        <input type="text" class="form__input form__name" id="form__name" required>
+        <input type="text" class="form__input form__name" v-model="form__name" required>
     </div>
     <div class="form__row">
         <label class="form__label" for="form__email">Correo electrónico</label>
-        <input type="email" class="form__input form__email" id="form__email" required>
+        <input type="email" class="form__input form__email" v-model="form__email" required>
     </div>
     <div class="form__row">
         <label class="form__label" for="form__number">Número telefónico</label>
-        <input type="text" class="form__input form__number" id="form__number" required>
+        <input type="text" class="form__input form__number" v-model="form__number" required>
     </div>
     <div class="form__row">
         <label class="form__label" for="form__message">Mensaje</label>
-        <textarea class="form__input form__message" id="form__message" cols="30" rows="10" wrap="hard" class="form__message" required></textarea>
+        <textarea class="form__input form__message" v-model="form__message" cols="30" rows="10" wrap="hard" class="form__message" required></textarea>
     </div>
     <div class="form__row">
         <label class="form__label" for="form__captcha">Código de seguridad</label>
         <div class="g-recaptcha form__input form__captcha" data-sitekey="6LfAlmUUAAAAAJ35VFnv1sRsTu9JiTRwKjASyGsA"></div>
-        {{!-- <input type="text" class="form__input form__captcha" id="form__captcha" required> --}}
     </div>
     <div class="form__row">
-        <input type="submit" value="Enviar" class="form__submit" id="form__submit">
+        <input type="submit" value="Enviar" class="form__submit" @click="send">
     </div>
 </form>

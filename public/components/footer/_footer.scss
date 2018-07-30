@@ -1,6 +1,7 @@
 /* ----- Footer component styles ----- */
 
 .footer {
+    position: relative;
     background-color: $colorBackground9;
     @include respond-to($desktop) {
         padding: 25px 40px;
@@ -8,6 +9,18 @@
     .text {
         font-size: 13px;
         color: $colorText1;
+    }
+    &__icon {
+        width: 40px;
+        height: 40px;
+        &-container {
+            position: absolute;
+            top: 30px;
+            right: 20px;
+            @include respond-to($desktop) {
+                right: 40px;
+            }
+        }
     }
     &--alt {
         background-color: $colorText1;

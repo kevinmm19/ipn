@@ -28,6 +28,11 @@
     &__link {
         color: $colorBackground10;
     }
+    p.text {
+        @include respond-to($desktop) {
+            text-align: justify;
+        }
+    }
     &--alt {
         background-color: $colorBackground9;
         .fragment__title,
@@ -46,7 +51,6 @@
             }
             @include respond-to($desktop) {
                 padding: 30px 40px 30px;
-                text-align: center;
                 border: 0;
             }
         }
@@ -64,7 +68,6 @@
             }
             @include respond-to($desktop) {
                 padding: 30px 40px 30px;
-                text-align: center;
                 border: 0;
             }
         }
