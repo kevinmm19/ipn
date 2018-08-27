@@ -7,6 +7,7 @@ var nodeMailer = require('nodemailer');
 var bodyParser = require('body-parser');
 var expressHbs = require('express-handlebars');
 var mongoose = require('mongoose');
+var nconf = require('nconf');
 
 // sass
 var sassMiddleware = require('node-sass-middleware');
@@ -18,21 +19,23 @@ var indexRouter = require('./routes/index');
 var blogRouter = require('./routes/blog');
 var contactRouter = require('./routes/contact');
 
+// keys
+nconf.argv().env().file('keys.json');
+const user = nconf.get('user');
+const pass = nconf.get('password');
+const host = nconf.get('host');
+const port = nconf.get('port');
+
 // mongoDB connection
 var app = express();
 mongoose.connect(
-  'mongodb://localhost:27017/ipn',
+  'mongodb://${user}:${pass}@${host}:${port}/${db}',
   { useNewUrlParser: true },
   err => {
       if (err) throw err;
       console.log('Successfully connected to database.');
   }
 );
-// var db = mongoose.connection;
-// db.on('error', console.error.bind(console, 'Connection error: '));
-// db.once('open', function() {
-//   console.log('Connected');
-// });
 
 // adding the sass middleware
 app.use(
