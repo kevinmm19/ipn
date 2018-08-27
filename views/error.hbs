@@ -1,0 +1,8 @@
+<main class="main error" data-action="error">
+    {{> hero }}
+    {{#if dev}}
+        <div class="content__wrapper">
+            <p>{{error.stack}}</p>
+        </div>
+    {{/if}}
+</main>

@@ -1,0 +1,87 @@
+/* ----- Fragment component styles ----- */
+
+.fragment {
+    padding: 40px 20px;
+    background-color: $colorBackground7;
+    &__title {
+        padding: 0 0 20px;
+        color: $colorBackground9;
+        text-align: center;
+        &--first {
+            padding: 10px 0 20px;
+            @include respond-to($desktop) {
+                padding: 0 0 20px;
+            }
+        }
+        &--next {
+            padding: 40px 0 20px;
+            @include respond-to($desktop) {
+                padding: 0 0 20px;
+            }
+        }
+    }
+    &__subtitle {
+        padding: 0 0 20px;
+        text-align: center;
+        font-weight: normal;
+    }
+    &__link {
+        color: $colorBackground10;
+    }
+    p.text {
+        @include respond-to($desktop) {
+            text-align: justify;
+        }
+    }
+    &--alt {
+        background-color: $colorBackground9;
+        .fragment__title,
+        .text {
+            color: $colorText1;
+        }
+        .fragment__title {
+            padding: 0 0 30px;
+        }
+        .fragment__item {
+            padding: 30px 0 30px;
+            border-top: 2px dotted $colorBackground10;
+            .fragment__title {
+                padding: 0 0 15px;
+                color: $colorBackground4;
+            }
+            @include respond-to($desktop) {
+                padding: 30px 40px 30px;
+                border: 0;
+            }
+        }
+    }
+    &--projects {
+        .fragment__title {
+            padding: 0 0 30px;
+        }
+        .fragment__item {
+            padding: 30px 0 30px;
+            border-top: 2px dotted $colorBackground10;
+            .fragment__title {
+                padding: 0 0 15px;
+                color: $colorBackground4;
+            }
+            @include respond-to($desktop) {
+                padding: 30px 40px 30px;
+                border: 0;
+            }
+        }
+    }
+    &--more {
+        .fragment__item {
+            padding: 10px 0 30px;
+            border: 0;
+            @include respond-to($desktop) {
+                padding: 30px 40px 30px;
+            }
+            .fragment__title {
+                padding: 0 0 20px;
+            }
+        }
+    }
+}

@@ -1,0 +1,25 @@
+/*------------------------------------*\
+    MAIN (imports)
+\*------------------------------------*/
+
+/* ----- Base/Shared Styles ----- */
+
+@import "normalize";
+@import "vars";
+@import "mixins";
+@import "global";
+
+/* ----- Vendor Styles ----- */
+@import "vendor/slick-theme";
+@import "vendor/slick";
+
+/* ----- Component Styles ----- */
+
+// Page-specific overrides for a given component should still be placed in the *component* scss.
+@import "../public/components/header/header";
+@import "../public/components/footer/footer";
+@import "../public/components/nav/nav";
+@import "../public/components/fragment/fragment";
+@import "../public/components/hero/hero";
+@import "../public/components/form/form";
+@import "../public/components/article/article";

@@ -1,0 +1,37 @@
+/* ----- Hero component styles ----- */
+
+.hero {
+    position: relative;
+    padding: 80px 20px;
+    text-align: center;
+    z-index: 1;
+    @include respond-to($desktop) {
+        padding: 80px 0;
+    }
+    &__title {
+        font-size: 34px;
+        color: $colorText1;
+        letter-spacing: 1px;
+        text-transform: capitalize;
+        @include respond-to($desktop) {
+            font-size: 40px;
+        }
+    }
+    &__description {
+        font-size: 18px;
+        color: $colorText1;
+        font-weight: normal;
+        @include respond-to($desktop) {
+            font-size: 22px;
+        }
+        .contacto & {
+            margin: 0 auto;
+            @include respond-to($tablet) {
+                max-width: 75%;
+            }
+            @include respond-to($desktop) {
+                font-size: 18px;
+            }
+        }
+    }
+}

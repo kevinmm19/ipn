@@ -1,0 +1,96 @@
+{{#if about}}
+    <section id="fragment-about" class="fragment fragment--about container" data-action="fragment">
+        <div class="flex">
+            <div class="flex__item-2">
+                <h2 class="fragment__title">IPN</h2>
+                <p class="text">Nuestra Misión es guiar a nuestros clientes en la implementación de las mejores prácticas de productividad, competitividad y continuidad del negocio.</p>
+                <p class="text">Nuestra Visión es ser reconocidos internacionalmente como expertos en innovación de modelos de negocios. </p>
+                <p class="text">Nuestros Valores son la confiabilidad, el servicio excepcional y la garantía de resultados.</p>
+            </div>
+            <div class="flex__item-2">
+                <h2 class="fragment__title fragment__title--next">Acompañamiento</h2>
+                <p class="text">Realizamos un diagnóstico técnico para analizar su arquitectura empresarial e identificar las brechas con respecto a las mejores prácticas, valorando las capacidades y competencias existentes. Guiamos en la definición y ejecución del Plan de Acción con las prioridades estratégicas e indicadores claves de desempeño.</p>
+                <p class="text">Conozca nuestra <a class="fragment__link" href="http://universidaddeinnovacion.com/moodle30/" target="_blank">Universidad Corporativa para la Innovación.</a></p>
+            </div>
+        </div>
+    </section>
+{{/if}}
+{{#if services}}
+    <section id="fragment-services" class="fragment fragment--alt fragment--services container" data-action="fragment">
+        <h2 class="fragment__title">Servicios</h2>
+        <div class="flex">
+            <div class="fragment__item flex__item">
+                <h3 class="fragment__title">ISO 20 000</h3>
+                <h4 class="fragment__subtitle">Sistema de Gestión de Servicios</h4>
+                <p class="text">Gestione sus proveedores eficientemente.</p>
+                <p class="text">Asegure que su infraestructura soporte su negocio.</p>
+                <p class="text">Gestione las solicitudes, incidentes y problemas de TI.</p>
+                <p class="text">Desarrolle SLAs.(Service Level Agreements)</p>
+            </div>
+            <div class="fragment__item flex__item">
+                <h3 class="fragment__title">ISO 9001:2015</h3>
+                <h4 class="fragment__subtitle">Sistema de Gestión de Calidad</h4>
+                <p class="text">Asegure a todas las partes interesadas que se cumplen sus requisitos. Implemente controles que agreguen valor. Gestione la experiencia del cliente. Incorpore indicadores de desempeño que le puedan dar información valiosa para toma de decisiones. Implemente procesos formales de Auditoría Interna que potencialicen la mejora continua.</p>
+            </div>
+            <div class="fragment__item flex__item">
+                <h3 class="fragment__title">Plan de Continuidad de TI</h3>
+                <h4 class="fragment__subtitle">Desarrollo e implementación</h4>
+                <p class="text">Asegure la continuidad de los servicios de TI.</p>
+                <p class="text">Defina la estrategia para contingencia y recuperación de desastres.</p>
+            </div>
+            <div class="fragment__item flex__item">
+                <h3 class="fragment__title">ISO 31000</h3>
+                <h4 class="fragment__subtitle">Gestión de Riesgos</h4>
+                <p class="text">Asegure la continuidad de su servicio. Opere en condiciones seguras. Gestione su riesgo estratégico y operativo.</p>
+            </div>
+            <div class="fragment__item flex__item">
+                <h3 class="fragment__title">Ingeniería de Procesos</h3>
+                <h4 class="fragment__subtitle">Excelencia Operacional</h4>
+                <p class="text">Hacemos más productiva y eficiente su organización.</p>
+                <p class="text">Reduzca sus costos. Elimine gastos innecesarios.</p>
+                <p class="text">Mejore significativamente el Servicio.</p>
+            </div>
+            <div class="fragment__item flex__item">
+                <h3 class="fragment__title">Gestión Estratégica</h3>
+                <h4 class="fragment__subtitle">Innovación del Modelo de Negocios</h4>
+                <p class="text">Diseño de propuesta de valor competitiva y sostenible.</p>
+                <p class="text">Generación de ScoreCards para seguimiento y control.</p>
+                <p class="text">Gestione las solicitudes, incidentes y problemas de TI.</p>
+                <p class="text">Desarrolle SLAs.(Service Level Agreements)</p>
+            </div>
+        </div>
+    </section>
+{{/if}}
+{{#if portfolio}}
+    <section id="fragment-projects" class="fragment fragment--projects container" data-action="fragment">
+        <h2 class="fragment__title">Proyectos</h2>
+        <div class="flex">
+            {{#each projects}}
+                <div class="fragment__item flex__item">
+                    <h3 class="fragment__title">{{this.name}}</h3>
+                    <h4 class="fragment__subtitle">{{this.duration}}</h4>
+                    <p class="text">{{this.goal}}</p>
+                    <p class="text">{{this.success}}</p>
+                </div>
+            {{/each}}
+        </div>
+    </section>
+{{/if}}
+{{#if more}}
+    <section id="fragment-more" class="fragment fragment--alt fragment--more container" data-action="fragment">
+        <h2 class="fragment__title">Más información</h2>
+        <div class="flex">
+            <div class="fragment__item flex__item-2">
+                <h3 class="fragment__title fragment__title--first">Continuidad del negocio</h3>
+                <p class="text">Identifique los eventos que pueden impactar la continuidad de las operaciones. Determine los tiempos críticos de recuperación. Identifique los puntos más débiles de la infraestructura, susceptibles de sufrir un incidente y afectar la continuidad.</p>
+            </div>
+            <div class="fragment__item flex__item-2">
+                <h3 class="fragment__title fragment__title--next">Capital de Clientes</h3>
+                <p class="text">Rentabilice su cartera de clientes.</p>
+                <p class="text">Diseño y Monitoreo de Experiencia del cliente.</p>
+                <p class="text">Asegure experiencias memorables para los usuarios.</p>
+                <p class="text">Implemente procesos formales de gestión de quejas y garantías</p>
+            </div>
+        </div>
+    </section>
+{{/if}}

@@ -1,0 +1,153 @@
+/*------------------------------------*\
+    GLOBAL/BASE STYLES
+\*------------------------------------*/
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    font-size: 62.5%; // set root font size to ~10px for easy calculation
+}
+html {
+    box-sizing: border-box; // subtract padding from declared widths
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+body {
+    background-color: $colorBackground1;
+    //background: -webkit-linear-gradient(-180deg, rgb(4, 23, 41), rgb(5, 107, 208));
+    background: linear-gradient(-180deg, rgb(4, 23, 41), rgb(5, 107, 208));
+    //background-image: url("../images/bg03.jpg");
+    //background-size: cover;
+    color: $colorText3;
+    font-size: 14px;
+    line-height: 1.4; // unitless line-height to be based off the element's size
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+h1, h2, h3, h4, h5, h6 {
+    color: $colorBackground4;
+}
+ul {
+    list-style: none;
+}
+li {
+    display: inline-block;
+}
+p {
+    margin-bottom: 10px;
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+/*------------------------------------*\
+    CLASSES
+\*------------------------------------*/
+
+.bg-container {
+    position: absolute;
+    width: 100%;
+    height: 500px;
+    background-image: url('/images/hero.jpg');
+    background-repeat: repeat-y;
+    background-attachment: fixed;
+    z-index: 0;
+    opacity: 0.25;
+    @include respond-to($content-width) {
+        height: 400px;
+        background-repeat: no-repeat;
+        opacity: 0.3;
+    }
+}
+.desktop {
+    display: none;
+    @include respond-to($desktop) {
+        display: inline-block;
+    }
+    &-ib {
+        @include respond-to($desktop) {
+            display: inline-block;
+        }
+    }
+}
+.wrapper {
+    margin: 0 auto;
+    max-width: 980px;
+    @include respond-to($desktop) {
+        padding: 0 20px;
+    }
+}
+.content__wrapper {
+    position: relative;
+    box-shadow: 0 0 25px 12px rgba(0, 0, 0, 0.3);
+    @include respond-to($content-width) {
+        bottom: 30px;
+        margin-bottom: 60px;
+    }
+    .error & {
+        padding: 40px;
+        p {
+            color: $colorText1;
+        }
+    }
+    .contacto & {
+        @include respond-to($desktop) {
+            margin: 0 auto 60px;
+            width: 50%;
+        }
+    }
+}
+.main {
+    padding-top: 60px;
+}
+.container {
+    padding: 20px;
+    @include respond-to($desktop) {
+        padding: 40px;
+    }
+}
+.flex {
+    @include respond-to($desktop) {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        align-content: space-around;
+        &__item {
+            flex: 1 1 33%;
+            width: 33%;
+            align-self: center;
+        }
+        &__item-2 {
+            flex: 1 1 50%;
+            width: 50%;
+            padding: 20px;
+            align-self: flex-start;
+        }
+    }
+    &--article {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        align-content: space-around;
+        @include respond-to($tablet) {
+            .flex__item {
+                flex: 1 1 50%;
+                width: 50%;
+                align-self: flex-start;
+                &:first-of-type {
+                    padding-right: 25px;
+                }
+            }
+        }
+    }
+}
