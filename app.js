@@ -25,11 +25,13 @@ const user = nconf.get('user');
 const pass = nconf.get('password');
 const host = nconf.get('host');
 const port = nconf.get('port');
+const db = nconf.get('db');
+const connectionStr = 'mongodb://'+user+':'+pass+'@'+host+':'+port+'/'+db;
 
 // mongoDB connection
 var app = express();
 mongoose.connect(
-  'mongodb://${user}:${pass}@${host}:${port}/${db}',
+  connectionStr,
   { useNewUrlParser: true },
   err => {
       if (err) throw err;
