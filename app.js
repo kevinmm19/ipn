@@ -7,7 +7,7 @@ var nodeMailer = require('nodemailer');
 var bodyParser = require('body-parser');
 var expressHbs = require('express-handlebars');
 var mongoose = require('mongoose');
-var nconf = require('nconf');
+var config = require('./keys.js');
 
 // sass
 var sassMiddleware = require('node-sass-middleware');
@@ -20,12 +20,11 @@ var blogRouter = require('./routes/blog');
 var contactRouter = require('./routes/contact');
 
 // keys
-nconf.argv().env().file('keys.json');
-const user = nconf.get('user');
-const pass = nconf.get('password');
-const host = nconf.get('host');
-const port = nconf.get('port');
-const db = nconf.get('db');
+const user = config.user;
+const pass = config.password;
+const host = config.host;
+const port = config.port;
+const db = config.db;
 const connectionStr = 'mongodb://'+user+':'+pass+'@'+host+':'+port+'/'+db;
 
 // mongoDB connection
