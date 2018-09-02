@@ -7,7 +7,7 @@ var nodeMailer = require('nodemailer');
 var bodyParser = require('body-parser');
 var expressHbs = require('express-handlebars');
 var mongoose = require('mongoose');
-var config = require('./keys.js');
+var config = require('./config.js');
 
 // sass
 var sassMiddleware = require('node-sass-middleware');
