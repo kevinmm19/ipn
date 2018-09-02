@@ -16,11 +16,12 @@
     "http-errors": "~1.6.2",
     "mongoose": "^5.2.4",
     "morgan": "~1.9.0",
-    "node-sass": "^4.9.2",
     "node-sass-middleware": "^0.11.0",
     "nodemailer": "^4.6.7"
   },
   "devDependencies": {
-    "nodemon": "^1.18.3"
+    "node-sass": "^4.9.3",
+    "nodemon": "^1.18.3",
+    "rebuild-node-sass": "^1.1.0"
   }
 }
