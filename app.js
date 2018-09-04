@@ -18,6 +18,7 @@ var destPath = __dirname + '/public/styles';
 var indexRouter = require('./routes/index');
 var blogRouter = require('./routes/blog');
 var contactRouter = require('./routes/contact');
+var sendRouter = require('./routes/send');
 
 // keys
 const user = config.user;
@@ -25,6 +26,8 @@ const pass = config.password;
 const host = config.host;
 const port = config.port;
 const db = config.db;
+const email = config.email;
+const auth = config.auth;
 const connectionStr = 'mongodb://'+user+':'+pass+'@'+host+':'+port+'/'+db;
 
 // mongoDB connection
@@ -89,39 +92,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/blog', blogRouter);
 app.use('/contacto', contactRouter);
-
-// email handler
-app.post('/send', function (req, res) {
-  let transporter = nodeMailer.createTransport({
-    host: 'smtp.gmail.com', //'smtp.ethereal.email',
-    port: 465, //587,
-    secure: true,
-    auth: {
-        user: 'kevinmm.19@gmail.com', //'ji4bfe2mwf55osqi@ethereal.email',
-        pass: 'Punk_Ideology' //'b4rJY3rvFgbT9FJE2H'
-    }
-  });
-  let mailOptions = {
-      from: '"Kevin Martinez" <kevinmm.19@gmail.com>', // sender address
-      to: 'kevinmm.19@gmail.com', //req.body.to, // list of receivers
-      subject: 'Test Email', //req.body.subject, // Subject line
-      text: 'Test body', //req.body.body, // plain text body
-      html: '<b>NodeJS Email Tutorial</b>' // html body
-  };
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-        return console.log(error);
-    }
-    console.log('Message %s sent: %s', info.messageId, info.response);
-    // Preview only available when sending through an Ethereal account
-    console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
-
-    // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
-    // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
-    
-    res.render('/');
-  });
-});
+app.use('/send', sendRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

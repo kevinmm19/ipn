@@ -11,7 +11,8 @@ router.get('/', function(req, res, next) {
       heroTitle: 'Contacto',
       name: 'contacto',
       description: 'Complete el siguiente formulario y nos estaremos comunicando con usted. También puede comunicarse con nosotros al siguiente correo electrónico: info@ipn.co.cr', 
-      users: content });
+      users: content 
+    });
   });
 });
 
