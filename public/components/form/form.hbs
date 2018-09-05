@@ -1,25 +1,33 @@
-<form action="/send" method="post" class="form container" data-action="form">
+<form action="/send" method="post" class="form container js-form" data-action="form" novalidate>
+    <div v-if="errors.length" class="form__error-container js-errors">
+        <h3 class="form__error-header">Por favor corrija los siguientes errores:</h3>
+        <ul class="form__error-list">
+            <li v-for="error in errors" class="form__error-item">
+                <p class="form__error-text">\{{error}}</p>
+            </li>
+        </ul>
+    </div>
     <div class="form__row">
         <label class="form__label" for="name">Nombre completo</label>
-        <input type="text" class="form__input form__name" v-model="form__name" required>
+        <input type="text" class="form__input form__name js-name" v-model="form__name" required>
     </div>
     <div class="form__row">
         <label class="form__label" for="form__email">Correo electrónico</label>
-        <input type="email" class="form__input form__email" v-model="form__email" required>
+        <input type="email" class="form__input form__email js-email" v-model="form__email" required>
     </div>
     <div class="form__row">
-        <label class="form__label" for="form__number">Número telefónico</label>
-        <input type="text" class="form__input form__number" v-model="form__number" required>
+        <label class="form__label" for="form__phone">Número telefónico</label>
+        <input type="text" class="form__input form__phone js-phone" v-model="form__phone" required>
     </div>
     <div class="form__row">
         <label class="form__label" for="form__message">Mensaje</label>
-        <textarea class="form__input form__message" v-model="form__message" cols="30" rows="10" wrap="hard" class="form__message" required></textarea>
+        <textarea class="form__input form__message js-message" v-model="form__message" cols="30" rows="10" wrap="hard" class="form__message" required></textarea>
     </div>
     <div class="form__row">
         <label class="form__label" for="form__captcha">Código de seguridad</label>
         <div class="g-recaptcha form__input form__captcha" data-sitekey="6LfAlmUUAAAAAJ35VFnv1sRsTu9JiTRwKjASyGsA"></div>
     </div>
     <div class="form__row">
-        <input type="submit" value="Enviar" class="form__submit" @click="send">
+        <input type="submit" value="Enviar" class="form__submit js-submit" @click="send">
     </div>
 </form>

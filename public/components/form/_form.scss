@@ -32,4 +32,33 @@
         border: 0;
         border-radius: 15%;
     }
+    &__error {
+        &-container {
+            display: none;
+        }
+        &-header {
+            font-size: 24px;
+            padding: 10px 0 0;
+            color: pink;
+        }
+        &-list {
+            list-style-type: disc;
+        }
+        &-item {
+            display: block;
+        }
+        &-text {
+            color: pink;
+        }
+        &-mark {
+            border: 1px solid red;
+            background-color: pink;
+        }
+    }
+    &--error {
+        .form__error-container {
+            display: block;
+            padding: 20px 0;
+        }
+    }
 }

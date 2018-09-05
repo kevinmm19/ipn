@@ -4,8 +4,9 @@ const config = {
     "db": "ipn",
     "user": "admin_ipn",
     "password": "_kamx0130",
-    "smtp": "smtp.gmail.com",
-    "ipnEmail": "kevinmm.19@gmail.com", //"kevin@ipn.co.cr",
-    "auth": "Punk_Ideology" //"jp%q2,5k[8"
+    "smtp": "smtp.ipn.co.cr",
+    "smtpPort": 465,
+    "email": "kevin@ipn.co.cr",
+    "auth": "jp%q2,5k[8"
 };
 module.exports = config;
