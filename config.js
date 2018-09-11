@@ -7,6 +7,8 @@ const config = {
     "smtp": "smtp.ipn.co.cr",
     "smtpPort": 465,
     "email": "kevin@ipn.co.cr",
-    "auth": "jp%q2,5k[8"
+    "auth": "jp%q2,5k[8",
+    "reCAPTCHA": "https://www.google.com/recaptcha/api/siteverify",
+    "secret": "6Lc-Em8UAAAAAGahWs3aYAguh6ISd4AtPnSqDaPQ"
 };
 module.exports = config;

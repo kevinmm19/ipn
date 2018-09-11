@@ -4,14 +4,13 @@ var project = require('../models/project');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  project.find(function(err, content) {
-    console.log('Projects: ' + content.length);
+  project.find(function(err, docs) {
     res.render('index', { 
       title: 'IPN',
       heroTitle: 'Ingeniería de Procesos de Negocios',
       name: 'home',
       description: 'Acompañando empresas líderes en el logro de resultados',
-      projects: content });
+      projects: docs });
   });
 });
 

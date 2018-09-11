@@ -38,8 +38,8 @@
         }
         &-header {
             font-size: 24px;
-            padding: 10px 0 0;
-            color: pink;
+            padding: 0 0 10px;
+            color: $error-text;
         }
         &-list {
             list-style-type: disc;
@@ -48,17 +48,17 @@
             display: block;
         }
         &-text {
-            color: pink;
+            color: $error-text;
         }
         &-mark {
-            border: 1px solid red;
-            background-color: pink;
+            border: 1px solid $error-outline;
+            background-color: $error-text;
         }
     }
     &--error {
         .form__error-container {
             display: block;
-            padding: 20px 0;
+            padding: 20px 0 30px;
         }
     }
 }

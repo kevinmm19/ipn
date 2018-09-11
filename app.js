@@ -6,7 +6,7 @@ var logger = require('morgan');
 var bodyParser = require('body-parser');
 var expressHbs = require('express-handlebars');
 var mongoose = require('mongoose');
-var config = require('./config.js');
+var config = require('./config');
 
 // sass
 var sassMiddleware = require('node-sass-middleware');
@@ -17,7 +17,9 @@ var destPath = __dirname + '/public/styles';
 var indexRouter = require('./routes/index');
 var blogRouter = require('./routes/blog');
 var contactRouter = require('./routes/contact');
-var sendRouter = require('./routes/send');
+var captchaRouter = require('./routes/captcha');
+var mailRouter = require('./routes/mail');
+var userRouter = require('./routes/user');
 
 // keys
 const user = config.user;
@@ -25,8 +27,6 @@ const pass = config.password;
 const host = config.host;
 const port = config.port;
 const db = config.db;
-const email = config.email;
-const auth = config.auth;
 const connectionStr = 'mongodb://'+user+':'+pass+'@'+host+':'+port+'/'+db;
 
 // mongoDB connection
@@ -87,11 +87,20 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Cross Origin Resource Sharing (CORS)
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 // Routes Handlers
 app.use('/', indexRouter);
 app.use('/blog', blogRouter);
 app.use('/contacto', contactRouter);
-app.use('/send', sendRouter);
+app.use('/captcha', captchaRouter);
+app.use('/mail', mailRouter);
+app.use('/user', userRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -113,7 +122,7 @@ app.use(function(err, req, res, next){
   // render the error page
   res.render('error', {
     title: 'IPN - Error',
-    heroTitle: err.status,
+    heroTitle: 'Error: ' + err.status,
     description: res.locals.message,
     name: 'error',
     dev: res.locals.dev,

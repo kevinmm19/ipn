@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var articleSchema = new Schema({
+    _id: Schema.Types.ObjectId,
     title: String,
     url: String,
     intro: String,
@@ -13,15 +14,6 @@ var articleSchema = new Schema({
 
 // Article model creation to use the articleSchema
 var Article = mongoose.model('Article', articleSchema, 'article');
-
-// methods
-Article.find({}, function(err, articles) {
-    if (err) throw err;
-  
-    // object of all the articles
-    console.log('Articles Found: ' + articles.length);
-    //console.log(articles);
-});
 
 // make this available to the user in the Node application
 module.exports = Article;
