@@ -26,52 +26,23 @@ userSchema.methods.findByEmail = function(email) {
 };
 
 userSchema.methods.add = async function(req, res) {
-    //console.log('Inside add method');
-    //var res = { error: false, user: doc, message: 'User updated!' }
-    // var user = new User();
-    // user.name = req.body.name;
-    // user.email = req.body.email;
-    // user.number = req.body.phone;
     console.log('Req.body ' + req.body.name + ' ' + req.body.email + ' ' + req.body.phone);
-    //POST /user 500 45.495 ms - 4868
-    const result = await User.findOneAndUpdate(
+    await User.findOneAndUpdate(
         { email: req.body.email }, 
         { name: req.body.name, number: req.body.phone, updatedAt: Date.now() }, 
         { upsert: true, new: true }, 
         function (err, doc) {
-            //POST /user 500 45.495 ms - 4868
-            console.log('Before err evaluation &s', err);
-            console.log('Before doc evaluation &s', doc);
             if (err) {
-                //return res.json({doc: null, error: true});
-                return null;
+                console.log('err evaluation &s', err);
+                return res.json({success: false, user: null});
             }
-            console.log('Before return doc &s', doc.email);
-            //Error: Can't set headers after they are sent.
-            //return res.json({doc: doc, error: false});
-            return doc;
-            // console.log('Inside findOneAndUpdate method');
-            // if (doc.length) {
-            //     console.log('Inside docLength method');
-            //     return { error: false, user: doc, message: 'User updated!' };
-            // } else {
-            //     console.log('Before save Mongoose');
-            //     user.save(function(err) {
-            //         console.log('Inside save Mongoose');
-            //         if(err) {
-            //             console.log('Inside save error Mongoose');
-            //             return { error: true, user: null, message: 'Fail on User creation!' };
-            //         }
-            //         console.log('End of save Mongoose, success ' + user.email + ' ' + user._id);
-            //         return { error: false, user: user, message: 'User saved!' };
-            //     });
-            // }
+            console.log('Before return doc &s', doc._id);
+            return res.json({success: true, user: doc});
         }
     ).catch(function(err) {
         console.log(err);
+        return res.json({success: false, user: null});
     });
-    console.log('Before result doc &s', result);
-    return result;
 }
 
 // make this available to the user in the Node application

@@ -2,73 +2,56 @@ var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 var express = require('express');
 var router = express.Router();
+var request = require('request');
 var User = require('../models/user');
 
 /* POST user. */
 router.post('/', async function(req, res, next) {
-  console.log('Inside POST user');
-  let response = await User.schema.methods.add(req, res);
-  console.log('Response: ' + response);
-  if(response !== null) {
-      //console.log('Response user._id: ' + response._id);
-      req.url = '/contacto';
-      console.log('Before /contacto: user._id %s', response._id);
-      req.user = response;
-      req.message = req.body.message;
-      res.send({success: true});
-      //return router._router.handle(req, res, next);
-  } else {
-      console.log('Response response.error: ' + response);
-      res.render('error', {
-        title: 'IPN - Error',
-        heroTitle: 'Error: 500',
-        description: 'El servidor ha fallado, favor intentar nuevamente.',
-        name: 'error',
-        back: true
-      });
+  try {
+    console.log('Inside POST user');
+    const userRes = await User.schema.methods.add(req, res);
+    console.log('Response of ADD User after await: ' + userRes);
+    if(userRes !== undefined && userRes.success) {
+        console.log('Response of ADD User after conditional: ' + userRes);
+        //req.url = '/contact';
+        //req.user = response;
+        //req.message = req.body.message;
+        console.log('Before post /contacto: user._id %s, %s, %s', userRes.user._id, userRes.user, req.body.message);
+        request.post({
+            url: '/contact',
+            json: { user: userRes.user, message: req.body.message }
+        }, function (error, contactRes, body) {
+            if(error || !body.success) {
+              res.json({ success: false, url: '/error' });
+            } else {
+              request.post({
+                  url: '/mail',
+                  json: { user: userRes.user, message: req.body.message }
+              }, function (error, mailRes, body) {
+                  if(error || !body.success) {
+                    res.json({ success: false, url: '/error' });
+                  }
+                  res.send(body);
+              });
+            }
+        });
+    } else {
+        console.log('ERROR POST USER, Response response.error: ' + userRes);
+        req.url = '/error';
+        req.method = 'GET';
+        req.description = 'El servidor ha fallado, favor intentar nuevamente.';
+        //console.log('Before /contacto: user._id in error: %s', response._id);
+        //return router._router.handle(req, res, next);
+        res.json({success: false, url: '/error'});
+    }
+  } catch (err) {
+    console.log('CATCH POST USER, Error catch User POST: ' + err);
+    req.url = '/error';
+    req.method = 'GET';
+    req.description = 'El servidor ha fallado, favor intentar nuevamente.';
+    //return router._router.handle(req, res, next);
+    res.json({success: false, url: '/error'});
   }
-//   User.schema.methods.add(req, res).then(function(response) {
-//     console.log('Response: ' + response.doc);
-//     if(response.doc !== null) {
-//         //console.log('Response user._id: ' + response._id);
-//         req.url = '/contacto';
-//         console.log('Before /contacto: user._id %s', response.doc._id);
-//         req.user = response.doc;
-//         req.message = req.body.message;
-//         res.send({success: true});
-//         //return router._router.handle(req, res, next);
-//     } else {
-//         console.log('Response response.error: ' + response.doc);
-//         res.render('error', {
-//         title: 'IPN - Error',
-//         heroTitle: 'Error: 500',
-//         description: 'El servidor ha fallado, favor intentar nuevamente.',
-//         name: 'error',
-//         back: true
-//         });
-//     }
-//   }).catch(function(err) {
-//         console.log(err);
-//   });
-//   console.log('Response: ' + response);
-//   if(response !== null) {
-//     //console.log('Response user._id: ' + response._id);
-//     req.url = '/contacto';
-//     console.log('Before /contacto: user._id %s', response._id);
-//     req.user = response;
-//     req.message = req.body.message;
-//     res.send({success: true});
-//     //return router._router.handle(req, res, next);
-//   } else {
-//     console.log('Response response.error: ' + error);
-//     res.render('error', {
-//       title: 'IPN - Error',
-//       heroTitle: 'Error: 500',
-//       description: 'El servidor ha fallado, favor intentar nuevamente.',
-//       name: 'error',
-//       back: true
-//     });
-//   }
 });
 
 module.exports = router;

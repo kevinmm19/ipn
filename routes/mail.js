@@ -20,6 +20,7 @@ router.post('/', function (req, res) {
         //     pass: 'MknZnfnRkmRxFFKvHv'
         // }
     });
+    console.log('Mail data: %s, %s, %s, %s', req.user.name, req.user.email, req.user.phone, req.user.message);
     let mailOptions = {
         from: '"' + req.user.name + '" <' + req.user.email + '>',
         to: 'kevinmm.19@gmail.com',
@@ -32,21 +33,24 @@ router.post('/', function (req, res) {
             console.log('Message %s sent: %s', info.messageId, info.response);
             // Preview only available when sending through an Ethereal account
             //console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
-            res.render('confirmation', {
-                title: 'IPN - Success',
-                heroTitle: '¡Gracias por contactarnos!',
-                description: 'Nos pondremos en contacto, en la menor brevedad posible.',
-                name: 'error',
-            });
+            // req.url = '/confirm';
+            // req.method = 'GET';
+            // return router._router.handle(req, res, next);
+            res.json({ success: true, url: '/confirm' });
         } else {
             console.log('Mail error: ' + error);
-            res.render('error', {
-                title: 'IPN - Error',
-                heroTitle: 'Error: 500',
-                description: 'El servidor no ha podido enviar el correo a IPN, favor intentar nuevamente.',
-                name: 'error',
-                back: true
-            });
+            res.json({ success: false, url: '/error' });
+            // req.url = '/error';
+            // req.method = 'GET';
+            // req.description = 'El servidor no ha podido enviar el correo a IPN, favor intentar nuevamente.';
+            // return router._router.handle(req, res, next);
+            // res.render('error', {
+            //     title: 'IPN - Error',
+            //     heroTitle: 'Error: 500',
+            //     description: 'El servidor no ha podido enviar el correo a IPN, favor intentar nuevamente.',
+            //     name: 'error',
+            //     back: true
+            // });
         }
         // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
         // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...

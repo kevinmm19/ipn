@@ -63,10 +63,13 @@ APP.form = (function () {
                         if(res.success) {
                             //this.mail(data);
                             //console.log('MAIL worked! ' + res.success);
-                            console.log('SAVE worked! ' + res.success);
+                            console.log('SAVE worked! ' + res.success + ' ' + res.url);
+                            window.location.href = res.url;
                         } else {
                             console.log('Error: ' + res);
                             console.log('SAVE did not work!');
+                            console.log('SAVE worked! ' + res.success + ' ' + res.url);
+                            window.location.href = res.url;
                         }
                     }).fail(function (error) {
                         console.log('Error: ' + error);

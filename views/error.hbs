@@ -1,13 +1,12 @@
 <main class="main error" data-action="error">
     {{> hero }}
-    {{#if dev}}
-        <div class="content__wrapper">
+    <div class="content__wrapper">
+        <a href="/" class="btn btn-back">Volver</a>
+        {{#if dev}}
+            <br>
+            <br>
+            <br>
             <p>{{error.stack}}</p>
-        </div>
-    {{/if}}
-    {{#if back}}
-        <div class="content__wrapper">
-            <a href="/contacto" class="btn btn-back">Volver</a>
-        </div>
-    {{/if}}
+        {{/if}}
+    </div>
 </main>

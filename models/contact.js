@@ -8,28 +8,32 @@ var contactSchema = new Schema({
     active: { type: Boolean, default: true }
 });
 
-// User model creation to use the userSchema
+// Contact model creation to use the contactSchema
 var Contact = mongoose.model('Contact', contactSchema, 'contact');
 
 // methods
 contactSchema.methods.add = function(req) {
     var contact = new Contact();
-    contact.userId = req.user._id;
-    contact.message = req.message;
-    contact.save(function(err) {
-        if(err) {
-            res.json({ error: true, message: 'Fail on Contact creation!' });
-        } 
-        res.json({ error: false, message: 'Contact saved!' });
+    contact.userId = req.body.user._id;
+    contact.message = req.body.message;
+    contact.save(function(err, doc) {
+        // if(err) {
+        //     res.json({ error: true, message: '¡Error en creación de Contacto!' });
+        // } 
+        // res.json({ error: false, message: '¡Contacto guardado!' });
+        if (err) {
+            console.log('err evaluation Contact Add &s', err);
+            return res.json({success: false, user: null});
+        }
+        console.log('Before return doc Contact Add &s', doc._id);
+        return res.json({success: true, user: doc});
     });
 }
 
 Contact.find({}, function(err, contacts) {
     if (err) throw err;
-  
-    // object of all the contacts
     console.log('Contacts Found: ' + contacts.length);
-    //console.log(contacts);
+    console.log(contacts);
 });
 
 module.exports = Contact;

@@ -16,8 +16,10 @@ var destPath = __dirname + '/public/styles';
 // routes
 var indexRouter = require('./routes/index');
 var blogRouter = require('./routes/blog');
+var confirmRouter = require('./routes/confirm');
 var contactRouter = require('./routes/contact');
 var captchaRouter = require('./routes/captcha');
+var errRouter = require('./routes/error');
 var mailRouter = require('./routes/mail');
 var userRouter = require('./routes/user');
 
@@ -97,8 +99,10 @@ app.use(function(req, res, next) {
 // Routes Handlers
 app.use('/', indexRouter);
 app.use('/blog', blogRouter);
-app.use('/contacto', contactRouter);
 app.use('/captcha', captchaRouter);
+app.use('/confirm', confirmRouter);
+app.use('/contacto', contactRouter);
+app.use('/error', errRouter);
 app.use('/mail', mailRouter);
 app.use('/user', userRouter);
 
@@ -124,7 +128,6 @@ app.use(function(err, req, res, next){
     title: 'IPN - Error',
     heroTitle: 'Error: ' + err.status,
     description: res.locals.message,
-    name: 'error',
     dev: res.locals.dev,
     error: err
   });

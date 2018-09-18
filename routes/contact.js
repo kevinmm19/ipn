@@ -13,22 +13,24 @@ router.get('/', function(req, res, next) {
 });
 
 /* POST contact. */
-router.post('/', function(req, res, next) {
-  
-  let response = Contact.add(req);
+router.post('/', async function(req, res, next) {
+  let response = await Contact.add(req);
   console.log('Response contact.save: ' + response);
-  if(!response.error) {
-    req.url = '/mail';
-    //req.user = response.contact;
-    return router._router.handle(req, res, next);
-  } else {
-    res.render('error', {
-      title: 'IPN - Error',
-      heroTitle: 'Error: 500',
-      description: 'El servidor ha fallado, favor intentar nuevamente.',
-      name: 'error',
-      back: true
+  if(response !== undefined && response.success) {
+    //req.url = '/mail';
+    request.post({
+        url: '/mail',
+        json: { user: req, message: req.body.message }
+    }, function (error, response, body) {
+        res.send(body);
     });
+    //return router._router.handle(req, res, next);
+  } else {
+    req.url = '/error';
+    req.method = 'GET';
+    req.description = 'El servidor ha fallado, favor intentar nuevamente.';
+    res.json({ success: false, url: '/error' });
+    //return router._router.handle(req, res, next);
   }
 });
 

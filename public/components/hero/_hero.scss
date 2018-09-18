@@ -16,6 +16,10 @@
         @include respond-to($desktop) {
             font-size: 40px;
         }
+        .confirm &,
+        .error & {
+            text-transform: none;
+        }
     }
     &__description {
         font-size: 18px;

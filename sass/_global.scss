@@ -110,6 +110,11 @@ p {
             color: $colorText1;
         }
     }
+    .confirm &,
+    .error & {
+        text-align: center;
+        box-shadow: none;
+    }
     .contacto & {
         @include respond-to($desktop) {
             margin: 0 auto 60px;
