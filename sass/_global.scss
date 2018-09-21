@@ -104,14 +104,13 @@ p {
         bottom: 30px;
         margin-bottom: 60px;
     }
-    .error & {
+    .status & {
         padding: 40px;
         p {
             color: $colorText1;
         }
     }
-    .confirm &,
-    .error & {
+    .status & {
         text-align: center;
         box-shadow: none;
     }

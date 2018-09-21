@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var expressHbs = require('express-handlebars');
 var mongoose = require('mongoose');
 var config = require('./config');
+mongoose.Promise = global.Promise;
 
 // sass
 var sassMiddleware = require('node-sass-middleware');
@@ -19,8 +20,8 @@ var blogRouter = require('./routes/blog');
 var confirmRouter = require('./routes/confirm');
 var contactRouter = require('./routes/contact');
 var captchaRouter = require('./routes/captcha');
-var errRouter = require('./routes/error');
-var mailRouter = require('./routes/mail');
+//var errRouter = require('./routes/error');
+var statusRouter = require('./routes/status');
 var userRouter = require('./routes/user');
 
 // keys
@@ -102,8 +103,8 @@ app.use('/blog', blogRouter);
 app.use('/captcha', captchaRouter);
 app.use('/confirm', confirmRouter);
 app.use('/contacto', contactRouter);
-app.use('/error', errRouter);
-app.use('/mail', mailRouter);
+//app.use('/error', errRouter);
+app.use('/status/:code', statusRouter);
 app.use('/user', userRouter);
 
 // catch 404 and forward to error handler
@@ -113,23 +114,17 @@ app.use(function(req, res, next) {
   next(err);
 });
 
-app.use(function(err, req, res, next){
-  // set locals, only providing error in development
+app.use(function(err, req, res, next) {
   res.locals.message = err.message;
-  res.locals.dev = req.app.get('env') === 'development' ? true : false;
-  res.locals.error = res.locals.dev ? err : {};  
   res.status(err.status || 500);
   if(err.status === 500) {
     res.locals.message = '¡Error interno de servidor!'
   }
-
-  // render the error page
-  res.render('error', {
+  res.render('status', {
     title: 'IPN - Error',
     heroTitle: 'Error: ' + err.status,
     description: res.locals.message,
-    dev: res.locals.dev,
-    error: err
+    href: '/'
   });
 });
 

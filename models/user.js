@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
-mongoose.Promise = global.Promise;
 var Schema = mongoose.Schema;
+var config = require('../config.js');
+var nodeMailer = require('nodemailer');
 
 // Schema
 var userSchema = new Schema({
@@ -16,32 +17,50 @@ var userSchema = new Schema({
 var User = mongoose.model('User', userSchema, 'user');
 
 // Methods
-userSchema.methods.findByEmail = function(email) {
-    User.findOne({email: email}).then(function(user) {
-        if(!user) {
-            return null;
-        }
-        return user;
-    }).catch(done);
+userSchema.methods.sendEmail = function(user, msg) {
+    return new Promise(function (resolve, reject) {
+        let transporter = nodeMailer.createTransport({
+            host: config.smtp,
+            port: config.smtpPort,
+            secure: true,
+            tls: { 
+                rejectUnauthorized: false 
+            },
+            auth: {
+                user: config.emailAuth,
+                pass: config.auth
+            }
+        });
+        let mailOptions = {
+            from: '"' + user.name + '" <' + user.email + '>',
+            to: config.emailIPN,
+            subject: user.name + ' - Teléfono: ' + user.number,
+            text: msg
+        };
+        transporter.sendMail(mailOptions, (error, info) => {
+            if (!error) {
+                resolve({ success: true, url: '/status/s' });
+            }
+            resolve({ success: false, url: '/status/e' });
+        });
+    });
 };
 
-userSchema.methods.add = async function(req, res) {
-    console.log('Req.body ' + req.body.name + ' ' + req.body.email + ' ' + req.body.phone);
-    await User.findOneAndUpdate(
-        { email: req.body.email }, 
-        { name: req.body.name, number: req.body.phone, updatedAt: Date.now() }, 
-        { upsert: true, new: true }, 
-        function (err, doc) {
-            if (err) {
-                console.log('err evaluation &s', err);
-                return res.json({success: false, user: null});
+userSchema.methods.add = function(req) {
+    return new Promise(function (resolve, reject) {
+        User.findOneAndUpdate(
+            { email: req.body.email }, 
+            { name: req.body.name, number: req.body.phone, updatedAt: Date.now() }, 
+            { upsert: true, new: true }, 
+            function (err, doc) {
+                if (err) {
+                    resolve({success: false, user: null});
+                }
+                resolve({success: true, user: doc});
             }
-            console.log('Before return doc &s', doc._id);
-            return res.json({success: true, user: doc});
-        }
-    ).catch(function(err) {
-        console.log(err);
-        return res.json({success: false, user: null});
+        ).catch(function(err) {
+            resolve({success: false, user: null});
+        });
     });
 }
 

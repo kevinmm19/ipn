@@ -16,8 +16,7 @@
         @include respond-to($desktop) {
             font-size: 40px;
         }
-        .confirm &,
-        .error & {
+        .status & {
             text-transform: none;
         }
     }
