@@ -1,18 +1,9 @@
 var express = require('express');
-var router = express.Router();
-
-/* PARAM CODE. */
-router.param('code', function(req, res, next, code) {
-    req.code = code;
-    console.log('Param Req.code: ' + req.code);
-    next();
-});
+var router = express.Router({ mergeParams: true });
 
 /* GET ERROR. */
 router.get('/', function(req, res, next) {
-    let code = req.query.code;
-    console.log('Get code param: ' + code);
-    //console.log('Req.code: ' + req.code);
+    let code = req.params.code;
     if(code !== undefined && code === 's') {
         res.render('status', {
             title: 'IPN - Success',

@@ -9,7 +9,8 @@ router.get('/', function(req, res, next) {
       title: 'IPN',
       heroTitle: 'Ingeniería de Procesos de Negocios',
       description: 'Acompañando empresas líderes en el logro de resultados',
-      projects: docs });
+      projects: docs 
+    });
   });
 });
 

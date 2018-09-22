@@ -9,9 +9,6 @@ APP.fragment = (function () {
     };
 
     var init = function () {
-        // uncomment the following line to access the DOM element invoking this component
-        // var element = arguments[0];
-        console.log('APP.fragment');
         bindEventsToUI();
     };
 

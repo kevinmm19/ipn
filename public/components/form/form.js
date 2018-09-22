@@ -24,20 +24,11 @@ APP.form = (function () {
                             dataType: 'json',
                             data: data
                         }).done(function(res) {
-                            // if(res.success) {
-                            //     console.log('SAVE worked! ' + res.success + ' ' + res.url);
-                            //     window.location.href = res.url;
-                            // } else {
-                            //     console.log('Error: ' + res);
-                            //     window.location.href = res.url;
-                            // }
                             window.location.href = res.url;
                         }).fail(function (error) {
-                            //console.log('SAVE crashed! Error: ' + error);
                             window.location.href = '/status/e';
                         });
                     } catch (err) {
-                        //console.log(err);
                         window.location.href = '/status/e';
                     }
                 },
@@ -129,9 +120,6 @@ APP.form = (function () {
     };
 
     var init = function () {
-        // uncomment the following line to access the DOM element invoking this component
-        // var element = arguments[0];
-        console.log('APP.form');
         bindEventsToUI();
     };
 

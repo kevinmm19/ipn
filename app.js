@@ -17,10 +17,8 @@ var destPath = __dirname + '/public/styles';
 // routes
 var indexRouter = require('./routes/index');
 var blogRouter = require('./routes/blog');
-var confirmRouter = require('./routes/confirm');
 var contactRouter = require('./routes/contact');
 var captchaRouter = require('./routes/captcha');
-//var errRouter = require('./routes/error');
 var statusRouter = require('./routes/status');
 var userRouter = require('./routes/user');
 
@@ -39,7 +37,6 @@ mongoose.connect(
   { useNewUrlParser: true },
   err => {
       if (err) throw err;
-      console.log('Successfully connected to database.');
   }
 );
 
@@ -101,9 +98,7 @@ app.use(function(req, res, next) {
 app.use('/', indexRouter);
 app.use('/blog', blogRouter);
 app.use('/captcha', captchaRouter);
-app.use('/confirm', confirmRouter);
 app.use('/contacto', contactRouter);
-//app.use('/error', errRouter);
 app.use('/status/:code', statusRouter);
 app.use('/user', userRouter);
 

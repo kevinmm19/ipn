@@ -61,7 +61,7 @@ APP.core.controller = (function () {
             var element = routes[i];
             var routeName = element.getAttribute('data-action');
             setRoute(routeName);
-            console.log('APP.controller.init | APP.' + routeName + '.init() invoked');
+            //console.log('APP.controller.init | APP.' + routeName + '.init() invoked');
             executeRouteForElement(element);
         }
     };

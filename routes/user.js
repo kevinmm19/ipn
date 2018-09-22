@@ -10,8 +10,7 @@ router.post('/', async function(req, res, next) {
     if(userRes !== undefined && userRes.success) {
         const contactRes = await Contact.schema.methods.add(userRes.user, req.body.message);
         if(contactRes !== undefined && contactRes.success) {
-          //const mailRes = await User.schema.methods.sendEmail(userRes.user, req.body.message);
-          const mailRes = {success: true, url: '/status/s'};
+          const mailRes = await User.schema.methods.sendEmail(userRes.user, req.body.message);
           res.send(mailRes);
         } else {
           res.json({success: false, url: '/status/e'});
