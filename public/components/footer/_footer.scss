@@ -10,6 +10,11 @@
         font-size: 13px;
         color: $colorText1;
     }
+    &__phone {
+        color: $colorText1;
+        text-decoration: none;
+        cursor: text;
+    }
     &__icon {
         width: 40px;
         height: 40px;
@@ -24,7 +29,8 @@
     }
     &--alt {
         background-color: $colorText1;
-        .text {
+        .text,
+        .footer__phone {
             color: $colorBackground9;
         }
     }

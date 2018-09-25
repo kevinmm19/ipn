@@ -67,6 +67,7 @@ p {
     }
 }
 .btn {
+    display: block;
     margin: 50px auto;
     padding: 15px;
     width: 100px;
@@ -75,6 +76,9 @@ p {
     background-color: $colorBackground4;
     border: 0;
     border-radius: 15%;
+    &--back {
+        margin: 0 auto;
+    }
 }
 .desktop {
     display: none;

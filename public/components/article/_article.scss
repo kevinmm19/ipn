@@ -67,8 +67,10 @@
     }
     .slick-prev,
     .slick-next {
+        top: 45px;
+        height: 38px;
+        width: 38px;
         z-index: 1;
-        top: 30px;
         @include respond-to($tablet) {
             top: 50%;
         }
