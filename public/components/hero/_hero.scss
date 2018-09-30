@@ -5,6 +5,7 @@
     padding: 80px 20px;
     text-align: center;
     z-index: 1;
+    background-color: transparent;
     @include respond-to($desktop) {
         padding: 80px 0;
     }

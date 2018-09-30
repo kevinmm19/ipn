@@ -24,8 +24,8 @@
         <textarea id="form__message" class="form__input form__message js-message" v-model="form__message" cols="30" rows="10" wrap="hard" required></textarea>
     </div>
     <div class="form__row">
-        <label class="form__label" for="form__captcha">CAPTCHA</label>
-        <div id="form__captcha" class="g-recaptcha form__input form__captcha js-captcha" data-sitekey="6Lc-Em8UAAAAACWVGp8Pu0TyJ3twSL-BD-ogCuwa"></div>
+        <label id="form__captcha-label" class="form__label" for="form__captcha">CAPTCHA</label>
+        <div id="form__captcha" class="g-recaptcha form__input form__captcha js-captcha" aria-labelledby="form__captcha-label" aria-describedby="form__captcha-label" data-sitekey="6Lc-Em8UAAAAACWVGp8Pu0TyJ3twSL-BD-ogCuwa"></div>
     </div>
     <div class="form__row">
         <input type="submit" id="form__submit" value="Enviar" class="btn form__submit js-submit" @click="send">

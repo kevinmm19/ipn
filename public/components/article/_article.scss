@@ -123,6 +123,7 @@
             }
         }
         li.slick-active>button {
+            color: $colorText2;
             background-color: $colorText1;
             border: 1px solid $colorBackground10;
         }
