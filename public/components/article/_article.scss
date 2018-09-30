@@ -20,11 +20,12 @@
     }
     &__subtitle {
         padding: 0 0 20px;
+        color: $colorBackground5;
         text-align: center;
         font-weight: normal;
     }
     &__date {
-        color: $colorBackground4;
+        color: $colorBackground5;
     }
     &__intro {
         color: $colorBackground9;
@@ -90,7 +91,7 @@
     .slick-prev:before, 
     .slick-next:before {
         font-size: 40px;
-        color: $colorBackground4;
+        color: $colorBackground5;
         opacity: 1;
     }
     .slick-prev:hover,
@@ -108,9 +109,10 @@
             bottom: 50px;
             width: calc(100% - 120px);
         }
-        li button {
+        li>button {
             height: 15px;
             width: 15px;
+            color: $colorText1;
             background-color: $colorBackground10;
             border-radius: 50%;
             &:before {
@@ -120,7 +122,7 @@
                 outline: 1px dotted $colorBackground9;
             }
         }
-        li.slick-active button {
+        li.slick-active>button {
             background-color: $colorText1;
             border: 1px solid $colorBackground10;
         }

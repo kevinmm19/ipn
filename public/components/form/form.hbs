@@ -8,26 +8,26 @@
         </ul>
     </div>
     <div class="form__row">
-        <label class="form__label" for="name">Nombre completo</label>
-        <input type="text" class="form__input form__name js-name" v-model="form__name" required>
+        <label class="form__label" for="form__name">Nombre completo</label>
+        <input type="text" id="form__name" class="form__input form__name js-name" v-model="form__name" required>
     </div>
     <div class="form__row">
         <label class="form__label" for="form__email">Correo electrónico</label>
-        <input type="email" class="form__input form__email js-email" v-model="form__email" required>
+        <input type="email" id="form__email" class="form__input form__email js-email" v-model="form__email" required>
     </div>
     <div class="form__row">
         <label class="form__label" for="form__phone">Número telefónico</label>
-        <input type="text" class="form__input form__phone js-phone" v-model="form__phone" required>
+        <input type="text" id="form__phone" class="form__input form__phone js-phone" v-model="form__phone" required>
     </div>
     <div class="form__row">
         <label class="form__label" for="form__message">Mensaje</label>
-        <textarea class="form__input form__message js-message" v-model="form__message" cols="30" rows="10" wrap="hard" class="form__message" required></textarea>
+        <textarea id="form__message" class="form__input form__message js-message" v-model="form__message" cols="30" rows="10" wrap="hard" required></textarea>
     </div>
     <div class="form__row">
         <label class="form__label" for="form__captcha">CAPTCHA</label>
-        <div class="g-recaptcha form__input form__captcha js-captcha" data-sitekey="6Lc-Em8UAAAAACWVGp8Pu0TyJ3twSL-BD-ogCuwa"></div>
+        <div id="form__captcha" class="g-recaptcha form__input form__captcha js-captcha" data-sitekey="6Lc-Em8UAAAAACWVGp8Pu0TyJ3twSL-BD-ogCuwa"></div>
     </div>
     <div class="form__row">
-        <input type="submit" value="Enviar" class="btn form__submit js-submit" @click="send">
+        <input type="submit" id="form__submit" value="Enviar" class="btn form__submit js-submit" @click="send">
     </div>
 </form>
