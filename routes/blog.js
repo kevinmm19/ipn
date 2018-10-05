@@ -6,7 +6,7 @@ var blog = require('../models/article');
 router.get('/', function(req, res, next) {
   blog.find(function(err, content) {
     res.render('blog', { 
-        title: 'IPN - Blog',
+        title: 'IPN Blog',
         heroTitle: 'Blog',
         description: 'Artículos publicados en el periódico El Financiero',
         articles: content
