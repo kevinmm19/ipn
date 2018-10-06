@@ -117,6 +117,7 @@ app.use(function(err, req, res, next) {
   }
   res.render('status', {
     title: 'IPN - Error',
+    class: ' bg-container--full',
     heroTitle: 'Error: ' + err.status,
     description: res.locals.message,
     href: '/'

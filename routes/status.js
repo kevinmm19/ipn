@@ -7,6 +7,7 @@ router.get('/', function(req, res, next) {
     if(code !== undefined && code === 's') {
         res.render('status', {
             title: 'IPN - Success',
+            class: ' bg-container--full',
             heroTitle: '¡Gracias por contactarnos!',
             description: 'Responderemos tu mensaje, en la menor brevedad posible.',
             href: '/contacto'
@@ -14,6 +15,7 @@ router.get('/', function(req, res, next) {
     } else {
         res.render('status', {
             title: 'IPN - Error',
+            class: ' bg-container--full',
             heroTitle: 'Error: 500',
             description: '¡Error interno de servidor! Favor intentarlo nuevamente.',
             href: '/contacto'
